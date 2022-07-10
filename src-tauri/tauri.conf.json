@@ -22,25 +22,12 @@
         "depends": []
       },
       "externalBin": [],
-      "icon": [
-        "icons/32x32.png",
-        "icons/128x128.png",
-        "icons/128x128@2x.png",
-        "icons/icon.icns",
-        "icons/icon.ico"
-      ],
-      "identifier": "com.tauri.dev",
+      "icon": ["icons/icon.ico"],
+      "identifier": "com.hardwareinfo",
       "longDescription": "",
-      "macOS": {
-        "entitlements": null,
-        "exceptionDomain": "",
-        "frameworks": [],
-        "providerShortName": null,
-        "signingIdentity": null
-      },
       "resources": [],
       "shortDescription": "",
-      "targets": "all",
+      "targets": "msi",
       "windows": {
         "certificateThumbprint": null,
         "digestAlgorithm": "sha256",
@@ -59,7 +46,8 @@
         "height": 600,
         "resizable": true,
         "title": "HardwareInfo",
-        "width": 800
+        "width": 800,
+        "center": true
       }
     ]
   }
