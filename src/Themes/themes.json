@@ -1,0 +1,18 @@
+{
+  "light": {
+    "background": "#fff",
+    "color": "#000",
+    "scrollbar": "#aaa",
+    "navigation": "#212121",
+    "border": "#3b3b3b",
+    "hamburger": "#2a2a2a"
+  },
+  "dark": {
+    "background": "#252525",
+    "color": "#fff",
+    "scrollbar": "#ccc",
+    "navigation": "#212121",
+    "border": "#3b3b3b",
+    "hamburger": "#2a2a2a"
+  }
+}

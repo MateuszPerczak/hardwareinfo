@@ -14,8 +14,9 @@ const GlobalStyle: FC = (): JSX.Element => {
           padding: 0;
         }
         body {
-          background-color: #212121;
-          color: #fff;
+          font-family: "Poppins", sans-serif;
+          background-color: ${theme.background};
+          color: ${theme.color};
         }
         #root {
           height: 100vh;
@@ -25,10 +26,11 @@ const GlobalStyle: FC = (): JSX.Element => {
           src: url("./fonts/Segoe Fluent Icons.ttf") format("truetype");
         }
         ::-webkit-scrollbar {
-          width: 6px;
+          width: 4px;
         }
         ::-webkit-scrollbar-thumb {
           border-radius: 10px;
+          background-color: ${theme.scrollbar};
         }
       `}
     />
