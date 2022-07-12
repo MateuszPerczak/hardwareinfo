@@ -25,6 +25,10 @@ const GlobalStyle: FC = (): JSX.Element => {
           font-family: "Segoe Fluent Icons";
           src: url("./fonts/Segoe Fluent Icons.ttf") format("truetype");
         }
+        @font-face {
+          font-family: "Poppins";
+          src: url("./fonts/Poppins.ttf") format("truetype");
+        }
         ::-webkit-scrollbar {
           width: 4px;
         }

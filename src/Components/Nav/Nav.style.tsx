@@ -9,7 +9,8 @@ const StyledNav = styled(animated.nav)`
   padding: 4px;
   height: 100%;
   user-select: none;
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: auto;
   background-color: ${({ theme: { navigation } }) => navigation};
   border-right: 1px solid ${({ theme: { border } }) => border};
 `;

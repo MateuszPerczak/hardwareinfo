@@ -47,7 +47,9 @@
         "resizable": true,
         "title": "HardwareInfo",
         "width": 800,
-        "center": true
+        "center": true,
+        "minWidth": 600,
+        "minHeight": 400
       }
     ]
   }

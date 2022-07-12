@@ -10,9 +10,10 @@ type NavButtonProps = {
 const NavButton: FC<NavButtonProps> = ({
   icon,
   header,
+  ...rest
 }: NavButtonProps): JSX.Element => {
   return (
-    <StyledNavButton>
+    <StyledNavButton {...rest}>
       <Icon>{icon}</Icon>
       <StyledNavHeader>{header}</StyledNavHeader>
     </StyledNavButton>

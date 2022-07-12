@@ -6,7 +6,7 @@ export const StyledNavButton = styled.div`
   justify-content: flex-start;
   gap: 16px;
   width: 100%;
-  height: 36px;
+  min-height: 36px;
   padding-left: 12px;
   border-radius: 10px;
   transition: background-color 200ms;

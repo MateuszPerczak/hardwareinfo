@@ -16,7 +16,7 @@ const StyledNavHamburger: NavHamburgerDiv = styled.div`
   align-items: center;
   justify-content: center;
   width: 40px;
-  height: 36px;
+  min-height: 36px;
   border-radius: 10px;
   font-size: 18px;
   cursor: pointer;
