@@ -10,7 +10,7 @@
 
 - React
 - Emotion
-- react-spring
+- framer-motion
 - Tauri
 
 ## Icons
