@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
-import { animated } from "react-spring";
+import { motion } from "framer-motion";
 
-const StyledNav = styled(animated.nav)`
+const StyledNav = styled(motion.nav)`
   display: flex;
   flex-direction: column;
   align-items: flex-start;

@@ -1,11 +1,7 @@
-import { FC } from "react";
+import type { FC } from "react";
+import type NavButtonProps from "./NavButton.types";
 import { StyledNavButton, StyledNavHeader } from "./NavButton.style";
 import Icon from "../Icon/Icon";
-
-type NavButtonProps = {
-  icon: string;
-  header: string;
-};
 
 const NavButton: FC<NavButtonProps> = ({
   icon,

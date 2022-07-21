@@ -1,11 +1,7 @@
-import { FC } from "react";
+import type { FC } from "react";
+import type NavHamburgerProps from "./NavHamburger.types";
 import StyledNavHamburger from "./NavHamburger.style";
 import Icon from "../Icon/Icon";
-
-type NavHamburgerProps = {
-  isOpen: boolean;
-  onClick: () => void;
-};
 
 const NavHamburger: FC<NavHamburgerProps> = ({
   isOpen,

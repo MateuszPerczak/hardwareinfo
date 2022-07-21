@@ -1,6 +1,10 @@
 import styled from "@emotion/styled";
+import type {
+  NavButtonHeaderComponent,
+  NavButtonComponent,
+} from "./NavButton.types";
 
-export const StyledNavButton = styled.div`
+export const StyledNavButton: NavButtonComponent = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -18,7 +22,7 @@ export const StyledNavButton = styled.div`
   }
 `;
 
-export const StyledNavHeader = styled.span`
+export const StyledNavHeader: NavButtonHeaderComponent = styled.span`
   font-size: 0.8rem;
   padding-top: 2px;
 `;

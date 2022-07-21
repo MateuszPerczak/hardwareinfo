@@ -19,7 +19,9 @@ const GlobalStyle: FC = (): JSX.Element => {
           color: ${theme.color};
         }
         #root {
+          display: flex;
           height: 100vh;
+          overflow: hidden;
         }
         @font-face {
           font-family: "Segoe Fluent Icons";

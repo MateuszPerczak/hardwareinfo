@@ -1,16 +1,16 @@
 {
   "light": {
-    "background": "#fff",
+    "background": "#fafafa",
     "color": "#000",
-    "scrollbar": "#aaa",
-    "navigation": "#212121",
-    "border": "#3b3b3b",
-    "hamburger": "#2a2a2a"
+    "scrollbar": "#e1e1e1",
+    "navigation": "#e1e1e1",
+    "border": "#bababa",
+    "hamburger": "#f0f0f0"
   },
   "dark": {
     "background": "#252525",
     "color": "#fff",
-    "scrollbar": "#ccc",
+    "scrollbar": "#333",
     "navigation": "#212121",
     "border": "#3b3b3b",
     "hamburger": "#2a2a2a"
