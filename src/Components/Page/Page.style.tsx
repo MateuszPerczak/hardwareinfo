@@ -14,14 +14,16 @@ export const StyledPageHeader = styled(motion.header)`
 export const StyledPageContent = styled(motion.div)`
   display: flex;
   flex-direction: column;
-  padding-left: 20px;
+  gap: 10px;
+  padding: 0 10px 10px 10px;
   height: calc(100% - 75px);
   overflow-y: scroll;
   overflow-x: hidden;
 `;
 
 const StyledPage = styled.div`
-  width: calc(100% - 49px);
+  /* width: calc(100% - 49px); */
+  flex: 1;
 `;
 
 export default StyledPage;

@@ -13,6 +13,7 @@
     "scrollbar": "#333",
     "navigation": "#212121",
     "border": "#3b3b3b",
-    "hamburger": "#2a2a2a"
+    "hamburger": "#2a2a2a",
+    "panel": "#2a2a2a"
   }
 }

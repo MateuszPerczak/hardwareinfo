@@ -8,5 +8,6 @@ declare module "@emotion/react" {
     navigation: string;
     border: string;
     hamburger: string;
+    panel: string;
   }
 }
