@@ -6,6 +6,7 @@ const Panel: PanelComponent = styled.div`
   flex-direction: column;
   border-radius: 10px;
   background-color: ${({ theme: { panel } }) => panel};
+  box-shadow: 0 0 5px ${({ theme: { shadow } }) => shadow};
 `;
 
 export default Panel;

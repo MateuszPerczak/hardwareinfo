@@ -15,7 +15,7 @@ export const StyledPageContent = styled(motion.div)`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  padding: 0 10px 10px 10px;
+  padding: 5px 10px 10px 10px;
   height: calc(100% - 75px);
   overflow-y: scroll;
   overflow-x: hidden;
