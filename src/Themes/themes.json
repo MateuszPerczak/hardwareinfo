@@ -7,7 +7,8 @@
     "border": "#bababa",
     "hamburger": "#f0f0f0",
     "panel": "#f0f0f0",
-    "shadow": "#00000022"
+    "shadow": "#00000011",
+    "button": "#fafafa"
   },
   "dark": {
     "background": "#252525",
@@ -17,6 +18,7 @@
     "border": "#3b3b3b",
     "hamburger": "#2a2a2a",
     "panel": "#2a2a2a",
-    "shadow": "#00000011"
+    "shadow": "#00000011",
+    "button": "#252525"
   }
 }

@@ -27,15 +27,15 @@ const Nav: FC<NavProps> = ({ setPage }): JSX.Element => {
     >
       <NavHamburger isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
 
-      {topItems.map(({ id, page, ...route }) => {
+      {topItems.map(({ id, ...route }) => {
         return (
-          <NavButton key={id} {...route} onClick={() => setPage(page || "")} />
+          <NavButton key={id} {...route} onClick={() => setPage(id || 0)} />
         );
       })}
       <NavSpacer />
-      {bottomItems.map(({ id, page, ...route }) => {
+      {bottomItems.map(({ id, ...route }) => {
         return (
-          <NavButton key={id} {...route} onClick={() => setPage(page || "")} />
+          <NavButton key={id} {...route} onClick={() => setPage(id || 0)} />
         );
       })}
     </StyledNavigation>

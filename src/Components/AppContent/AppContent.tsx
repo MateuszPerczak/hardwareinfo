@@ -1,24 +1,25 @@
 import type { FC } from "react";
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import GlobalStyle from "../GlobalStyle/GlobalStyle";
 import Nav from "../Nav/Nav";
 import { AnimatePresence } from "framer-motion";
+import { routes } from "../../Routes/routes";
 
-import Home from "../../Pages/Home";
-import Settings from "../../Pages/Settings";
-import Processor from "../../Pages/Processor";
+import Error from "../../Pages/Error";
 
 const AppContent: FC = (): JSX.Element => {
-  const [page, setPage] = useState("Home");
+  const [page, setPage] = useState(1);
+
+  const Page: FC = useMemo(() => {
+    return routes.find((route) => route.id === page)?.page || Error;
+  }, [page]);
 
   return (
     <>
       <GlobalStyle />
       <Nav setPage={setPage} />
       <AnimatePresence>
-        {page === "Home" && <Home />}
-        {page === "Processor" && <Processor />}
-        {page === "Settings" && <Settings />}
+        <Page />
       </AnimatePresence>
     </>
   );

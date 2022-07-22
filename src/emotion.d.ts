@@ -10,5 +10,6 @@ declare module "@emotion/react" {
     hamburger: string;
     panel: string;
     shadow: string;
+    button: string;
   }
 }

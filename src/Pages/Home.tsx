@@ -9,10 +9,10 @@ const Home: FC = (): JSX.Element => {
   return (
     <Page header="Home">
       <Panel>
-        <PanelHeader icon="&#xE98F;" header="Hi, welcome to hardwareinfo" />
+        <PanelHeader icon="&#xE789;" header="Hi, welcome to hardwareinfo" />
         <PanelContent>
           <PanelText header="Hardwareinfo is a system profiling and monitoring application that detects the cpu, gpu, ram, motherboard and other devices.">
-            <span>Or i hope it does 🐢</span>
+            <span>Or i hope it does 💀</span>
           </PanelText>
         </PanelContent>
       </Panel>

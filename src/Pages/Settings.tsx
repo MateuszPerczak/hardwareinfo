@@ -4,7 +4,9 @@ import Panel from "../Components/Panel/Panel";
 import PanelHeader from "../Components/PanelHeader/PanelHeader";
 import PanelContent from "../Components/PanelContent/PanelContent";
 import PanelText from "../Components/PanelText/PanelText";
+import PanelSetting from "../Components/PanelSetting/PanelSetting";
 import Link from "../Components/Link/Link";
+import Button from "../Components/Button/Button";
 import Icon from "../Components/Icon/Icon";
 import Text from "../Components/Text/Text";
 
@@ -17,7 +19,15 @@ const Settings: FC = (): JSX.Element => {
       </Panel>
       <Panel>
         <PanelHeader icon="&#xE12A;" header="App" />
-        <PanelContent></PanelContent>
+        <PanelContent>
+          <PanelSetting>
+            <Text>Updates</Text>
+            <Button>
+              <Icon>&#xE149;</Icon>
+              Check for updates
+            </Button>
+          </PanelSetting>
+        </PanelContent>
       </Panel>
       <Panel>
         <PanelHeader icon="&#xEA86;" header="Addons" />
@@ -26,8 +36,8 @@ const Settings: FC = (): JSX.Element => {
       <Panel>
         <PanelHeader icon="&#xE167;" header="Useful links" />
         <PanelContent>
-          <Link href="https://mateuszperczak.github.io/">My website</Link>
           <Link href="https://github.com/MateuszPerczak">Github</Link>
+          <Link href="https://mateuszperczak.github.io/">My website</Link>
           <Link href="https://github.com/MateuszPerczak/hardwareinfo">
             Github - Hardwareinfo
           </Link>
