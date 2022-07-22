@@ -4,9 +4,14 @@ import type {
   ElementType,
   DetailedHTMLProps,
   AnchorHTMLAttributes,
+  PropsWithChildren,
 } from "react";
 
-type LinkComponent = StyledComponent<
+type LinkProps = PropsWithChildren<{
+  href: string;
+}>;
+
+export type LinkComponent = StyledComponent<
   {
     theme?: Theme;
     as?: ElementType;
@@ -15,4 +20,4 @@ type LinkComponent = StyledComponent<
   Record<string, unknown>
 >;
 
-export default LinkComponent;
+export default LinkProps;

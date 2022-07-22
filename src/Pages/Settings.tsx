@@ -4,6 +4,7 @@ import Panel from "../Components/Panel/Panel";
 import PanelHeader from "../Components/PanelHeader/PanelHeader";
 import PanelContent from "../Components/PanelContent/PanelContent";
 import PanelText from "../Components/PanelText/PanelText";
+import Link from "../Components/Link/Link";
 import Icon from "../Components/Icon/Icon";
 import Text from "../Components/Text/Text";
 
@@ -24,7 +25,13 @@ const Settings: FC = (): JSX.Element => {
       </Panel>
       <Panel>
         <PanelHeader icon="&#xE167;" header="Useful links" />
-        <PanelContent></PanelContent>
+        <PanelContent>
+          <Link href="https://mateuszperczak.github.io/">My website</Link>
+          <Link href="https://github.com/MateuszPerczak">Github</Link>
+          <Link href="https://github.com/MateuszPerczak/hardwareinfo">
+            Github - Hardwareinfo
+          </Link>
+        </PanelContent>
       </Panel>
       <Panel>
         <PanelHeader icon="&#xE946;" header="About" />
