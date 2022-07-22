@@ -1,4 +1,5 @@
-import { FC, useState } from "react";
+import type { FC } from "react";
+import { useState } from "react";
 import GlobalStyle from "../GlobalStyle/GlobalStyle";
 import Nav from "../Nav/Nav";
 import { AnimatePresence } from "framer-motion";
