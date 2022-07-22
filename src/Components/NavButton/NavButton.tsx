@@ -1,7 +1,8 @@
 import type { FC } from "react";
 import type NavButtonProps from "./NavButton.types";
-import { StyledNavButton, StyledNavHeader } from "./NavButton.style";
+import { StyledNavButton } from "./NavButton.style";
 import Icon from "../Icon/Icon";
+import Text from "../Text/Text";
 
 const NavButton: FC<NavButtonProps> = ({
   icon,
@@ -11,7 +12,7 @@ const NavButton: FC<NavButtonProps> = ({
   return (
     <StyledNavButton {...rest}>
       <Icon>{icon}</Icon>
-      <StyledNavHeader>{header}</StyledNavHeader>
+      <Text>{header}</Text>
     </StyledNavButton>
   );
 };

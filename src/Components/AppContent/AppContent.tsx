@@ -6,6 +6,7 @@ import { AnimatePresence } from "framer-motion";
 
 import Home from "../../Pages/Home";
 import Settings from "../../Pages/Settings";
+import Processor from "../../Pages/Processor";
 
 const AppContent: FC = (): JSX.Element => {
   const [page, setPage] = useState("Home");
@@ -16,7 +17,7 @@ const AppContent: FC = (): JSX.Element => {
       <Nav setPage={setPage} />
       <AnimatePresence>
         {page === "Home" && <Home />}
-        {page === "Processor" && <Settings />}
+        {page === "Processor" && <Processor />}
         {page === "Settings" && <Settings />}
       </AnimatePresence>
     </>

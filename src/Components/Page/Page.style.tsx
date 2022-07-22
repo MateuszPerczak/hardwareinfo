@@ -22,8 +22,11 @@ export const StyledPageContent = styled(motion.div)`
 `;
 
 const StyledPage = styled.div`
-  /* width: calc(100% - 49px); */
+  display: flex;
+  flex-direction: column;
   flex: 1;
+  margin: 0 auto;
+  max-width: 1000px;
 `;
 
 export default StyledPage;

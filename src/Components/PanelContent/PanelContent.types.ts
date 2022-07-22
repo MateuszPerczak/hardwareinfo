@@ -2,12 +2,7 @@ import type { Theme } from "@emotion/react";
 import type { StyledComponent } from "@emotion/styled";
 import type { ElementType, DetailedHTMLProps, HTMLAttributes } from "react";
 
-type NavButtonProps = {
-  icon: string;
-  header: string;
-} & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
-
-export type NavButtonComponent = StyledComponent<
+type PanelContentComponent = StyledComponent<
   {
     theme?: Theme;
     as?: ElementType;
@@ -16,4 +11,4 @@ export type NavButtonComponent = StyledComponent<
   Record<string, unknown>
 >;
 
-export default NavButtonProps;
+export default PanelContentComponent;
