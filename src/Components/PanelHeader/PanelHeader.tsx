@@ -1,7 +1,8 @@
 import type { FC } from "react";
 import type PanelHeaderProps from "./PanelHeader.types";
-import StyledPanelHeader, { StyledPanelHeaderText } from "./PanelHeader.style";
+import StyledPanelHeader from "./PanelHeader.style";
 import Icon from "../Icon/Icon";
+import Text from "../Text/Text";
 
 const PanelHeader: FC<PanelHeaderProps> = ({
   icon,
@@ -10,7 +11,7 @@ const PanelHeader: FC<PanelHeaderProps> = ({
   return (
     <StyledPanelHeader>
       <Icon>{icon}</Icon>
-      <StyledPanelHeaderText>{header}</StyledPanelHeaderText>
+      <Text>{header}</Text>
     </StyledPanelHeader>
   );
 };

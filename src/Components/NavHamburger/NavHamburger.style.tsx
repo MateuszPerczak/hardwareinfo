@@ -7,7 +7,7 @@ const StyledNavHamburger: NavHamburgerComponent = styled.div`
   justify-content: center;
   width: 40px;
   min-height: 36px;
-  border-radius: 10px;
+  border-radius: 8px;
   transition: background-color 200ms;
   &:hover {
     background-color: ${({ theme: { hamburger } }) => {
@@ -15,9 +15,7 @@ const StyledNavHamburger: NavHamburgerComponent = styled.div`
     }};
   }
   &:active {
-    background-color: ${({ theme: { background } }) => {
-      return background;
-    }};
+    background-color: ${({ theme: { navigation } }) => navigation};
   }
 `;
 

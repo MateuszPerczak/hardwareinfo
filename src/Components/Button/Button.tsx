@@ -8,10 +8,11 @@ const Button: ButtonComponent = styled.div`
   gap: 10px;
   padding: 5px 10px;
   font-size: 0.8rem;
-  border-radius: 10px;
+  border-radius: 8px;
   user-select: none;
   transition: background-color 200ms;
   background-color: ${({ theme: { button } }) => button};
+  border: 1px solid ${({ theme: { border } }) => border};
   box-shadow: 0 0 5px ${({ theme: { shadow } }) => shadow};
   &:hover {
     background-color: ${({ theme: { hamburger } }) => hamburger};

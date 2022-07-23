@@ -1,14 +1,14 @@
 {
   "light": {
-    "background": "#fafafa",
+    "background": "#f9f9f9",
     "color": "#000",
     "scrollbar": "#e1e1e1",
-    "navigation": "#e1e1e1",
-    "border": "#bababa",
+    "navigation": "#eaeaea",
+    "border": "#e5e5e5",
     "hamburger": "#f0f0f0",
-    "panel": "#f0f0f0",
-    "shadow": "#00000011",
-    "button": "#fafafa"
+    "panel": "#f3f3f3",
+    "shadow": "#0000000a",
+    "button": "#fbfbfb"
   },
   "dark": {
     "background": "#252525",

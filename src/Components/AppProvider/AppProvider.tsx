@@ -1,9 +1,11 @@
 import { ThemeProvider } from "@emotion/react";
 import { FC, PropsWithChildren } from "react";
-import themes from "../../Themes/themes.json";
+import useTheme from "../../Hooks/useTheme";
 
 const AppProvider: FC<PropsWithChildren> = ({ children }): JSX.Element => {
-  return <ThemeProvider theme={themes["dark"]}>{children}</ThemeProvider>;
+  const { themeObject, browserTheme } = useTheme();
+
+  return <ThemeProvider theme={themeObject}>{children}</ThemeProvider>;
 };
 
 export default AppProvider;

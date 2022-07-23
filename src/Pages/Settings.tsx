@@ -20,13 +20,7 @@ const Settings: FC = (): JSX.Element => {
       <Panel>
         <PanelHeader icon="&#xE12A;" header="App" />
         <PanelContent>
-          <PanelSetting>
-            <Text>Updates</Text>
-            <Button>
-              <Icon>&#xE149;</Icon>
-              Check for updates
-            </Button>
-          </PanelSetting>
+          <PanelSetting></PanelSetting>
         </PanelContent>
       </Panel>
       <Panel>

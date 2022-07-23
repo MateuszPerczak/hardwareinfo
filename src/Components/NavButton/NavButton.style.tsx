@@ -9,12 +9,12 @@ export const StyledNavButton: NavButtonComponent = styled.div`
   width: 100%;
   min-height: 36px;
   padding-left: 12px;
-  border-radius: 10px;
+  border-radius: 8px;
   transition: background-color 200ms;
   &:hover {
     background-color: ${({ theme: { hamburger } }) => hamburger};
   }
   &:active {
-    background-color: transparent;
+    background-color: ${({ theme: { navigation } }) => navigation};
   }
 `;

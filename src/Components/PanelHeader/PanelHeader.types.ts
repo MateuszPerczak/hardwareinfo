@@ -15,13 +15,5 @@ export type PanelHeaderComponent = StyledComponent<
   DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>,
   Record<string, unknown>
 >;
-export type PanelHeaderTextComponent = StyledComponent<
-  {
-    theme?: Theme;
-    as?: ElementType;
-  },
-  DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>,
-  Record<string, unknown>
->;
 
 export default PanelHeaderProps;
