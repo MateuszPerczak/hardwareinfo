@@ -9,7 +9,8 @@
     "panel": "#f3f3f3",
     "shadow": "#0000000a",
     "button": "#fbfbfb",
-    "hover": "#e1e1e1"
+    "hover": "#e1e1e1",
+    "info": "#333"
   },
   "dark": {
     "background": "#252525",
@@ -21,6 +22,7 @@
     "panel": "#2a2a2a",
     "shadow": "#00000022",
     "button": "#252525",
-    "hover": "#212121"
+    "hover": "#212121",
+    "info": "#bbb"
   }
 }

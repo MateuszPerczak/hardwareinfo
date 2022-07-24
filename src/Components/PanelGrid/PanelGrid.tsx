@@ -1,7 +1,7 @@
 import type { FC } from "react";
 import type PanelGridProps from "./PanelGrid.types";
 import type { PanelGridData } from "./PanelGrid.types";
-import StyledPanelGrid from "./PanelGrid.style";
+import StyledPanelGrid, { StyledText } from "./PanelGrid.style";
 import Text from "../Text/Text";
 
 const PanelGrid: FC<PanelGridProps> = ({
@@ -13,9 +13,7 @@ const PanelGrid: FC<PanelGridProps> = ({
         return (
           <>
             <Text key={index + 1}>{item[0]}</Text>
-            <Text key={index + 2} style={{ color: "#aaa" }}>
-              {item[1]}
-            </Text>
+            <StyledText key={index + 2}>{item[1]}</StyledText>
           </>
         );
       })}
