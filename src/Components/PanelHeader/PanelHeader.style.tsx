@@ -9,4 +9,11 @@ const StyledPanelHeader: PanelHeaderComponent = styled.header`
   padding: 10px 15px;
 `;
 
+export const StyledPanelHeaderContent = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex: 1;
+`;
+
 export default StyledPanelHeader;
