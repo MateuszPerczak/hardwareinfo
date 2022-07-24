@@ -17,7 +17,7 @@
     "bundle": {
       "active": true,
       "category": "DeveloperTool",
-      "copyright": "",
+      "copyright": "Mateusz Perczak",
       "deb": {
         "depends": []
       },

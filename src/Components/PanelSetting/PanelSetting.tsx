@@ -6,7 +6,7 @@ const PanelSetting: PanelSettingComponent = styled.div`
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: 5px 0;
+  padding-top: 5px;
 `;
 
 export default PanelSetting;

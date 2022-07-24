@@ -9,7 +9,7 @@ const Processor: FC = (): JSX.Element => {
   return (
     <Page header="Processor">
       <Panel>
-        <PanelHeader icon="&#xEEA1;" header="Intel core i5-9600KF" />
+        <PanelHeader icon="&#xEEA1;" header="" />
         <PanelContent>
           <PanelGrid content={[]} />
         </PanelContent>

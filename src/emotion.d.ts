@@ -11,5 +11,6 @@ declare module "@emotion/react" {
     panel: string;
     shadow: string;
     button: string;
+    hover: string;
   }
 }

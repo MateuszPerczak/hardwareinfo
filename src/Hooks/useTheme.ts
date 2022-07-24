@@ -10,7 +10,7 @@ export enum Themes {
 }
 
 const useTheme = () => {
-  const [browserTheme, setbrowserTheme] = useLocalStorage<Themes>(
+  const [browserTheme, setBrowserTheme] = useLocalStorage<Themes>(
     "theme",
     Themes.System
   );
@@ -32,7 +32,7 @@ const useTheme = () => {
   return {
     themeObject,
     browserTheme,
-    setbrowserTheme,
+    setBrowserTheme,
   };
 };
 

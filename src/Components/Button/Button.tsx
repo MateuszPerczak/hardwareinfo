@@ -12,10 +12,9 @@ const Button: ButtonComponent = styled.div`
   user-select: none;
   transition: background-color 200ms;
   background-color: ${({ theme: { button } }) => button};
-  border: 1px solid ${({ theme: { border } }) => border};
   box-shadow: 0 0 5px ${({ theme: { shadow } }) => shadow};
   &:hover {
-    background-color: ${({ theme: { hamburger } }) => hamburger};
+    background-color: ${({ theme: { hover } }) => hover};
   }
   &:active {
     background-color: ${({ theme: { navigation } }) => navigation};
