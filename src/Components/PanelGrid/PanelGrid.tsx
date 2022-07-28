@@ -12,8 +12,8 @@ const PanelGrid: FC<PanelGridProps> = ({
       {content.map((item: PanelGridData, index) => {
         return (
           <>
-            <Text key={index + 1}>{item[0]}</Text>
-            <StyledText key={index + 2}>{item[1]}</StyledText>
+            <Text key={`header-${index}`}>{item[0]}</Text>
+            <StyledText key={`text-${index}`}>{item[1]}</StyledText>
           </>
         );
       })}

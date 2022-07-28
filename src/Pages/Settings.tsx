@@ -40,7 +40,7 @@ const Settings: FC = (): JSX.Element => {
           </PanelSetting>
         </PanelContent>
       </Panel>
-      <Panel>
+      {/* <Panel>
         <PanelHeader icon="&#xE12A;" header="App" />
         <PanelContent>
           <PanelSetting></PanelSetting>
@@ -49,7 +49,7 @@ const Settings: FC = (): JSX.Element => {
       <Panel>
         <PanelHeader icon="&#xEA86;" header="Addons" />
         <PanelContent></PanelContent>
-      </Panel>
+      </Panel> */}
       <Panel>
         <PanelHeader icon="&#xE167;" header="Useful links" />
         <PanelContent>
@@ -74,6 +74,9 @@ const Settings: FC = (): JSX.Element => {
           </PanelText>
           <PanelText header="Authors">
             <span>Mateusz Perczak</span>
+          </PanelText>
+          <PanelText header="Helpers">
+            <span>Krzysztof Zawisa</span>
           </PanelText>
         </PanelContent>
       </Panel>

@@ -16,9 +16,6 @@ const Button: ButtonComponent = styled.div`
   &:hover {
     background-color: ${({ theme: { hover } }) => hover};
   }
-  &:active {
-    background-color: ${({ theme: { navigation } }) => navigation};
-  }
 `;
 
 export default Button;
