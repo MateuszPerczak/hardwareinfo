@@ -26,16 +26,25 @@ const Nav: FC<NavProps> = ({ setPage }): JSX.Element => {
       onMouseLeave={() => setIsOpen(false)}
     >
       <NavHamburger isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
-
-      {topItems.map(({ id, ...route }) => {
+      {topItems.map(({ header, ...route }, index) => {
         return (
-          <NavButton key={id} {...route} onClick={() => setPage(id || 0)} />
+          <NavButton
+            key={index}
+            header={header}
+            {...route}
+            onClick={() => setPage(header)}
+          />
         );
       })}
       <NavSpacer />
-      {bottomItems.map(({ id, ...route }) => {
+      {bottomItems.map(({ header, ...route }, index) => {
         return (
-          <NavButton key={id} {...route} onClick={() => setPage(id || 0)} />
+          <NavButton
+            key={index}
+            header={header}
+            {...route}
+            onClick={() => setPage(header)}
+          />
         );
       })}
     </StyledNavigation>
