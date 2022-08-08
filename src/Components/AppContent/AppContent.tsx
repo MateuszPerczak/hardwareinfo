@@ -2,7 +2,6 @@ import { FC, Suspense } from "react";
 import { useState, lazy, useMemo } from "react";
 import GlobalStyle from "../GlobalStyle/GlobalStyle";
 import Nav from "../Nav/Nav";
-import { AnimatePresence } from "framer-motion";
 
 const AppContent: FC = (): JSX.Element => {
   const [page, setPage] = useState("Home");
@@ -17,11 +16,9 @@ const AppContent: FC = (): JSX.Element => {
     <>
       <GlobalStyle />
       <Nav setPage={setPage} />
-      <AnimatePresence>
-        <Suspense fallback={<></>}>
-          <Component />
-        </Suspense>
-      </AnimatePresence>
+      <Suspense fallback={<></>}>
+        <Component />
+      </Suspense>
     </>
   );
 };

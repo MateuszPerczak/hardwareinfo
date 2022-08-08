@@ -7,13 +7,20 @@ import PanelGrid from "../Components/PanelGrid/PanelGrid";
 import Button from "../Components/Button/Button";
 import Text from "../Components/Text/Text";
 import Icon from "../Components/Icon/Icon";
+import { invoke } from "@tauri-apps/api";
 
 const Processor: FC = (): JSX.Element => {
   return (
     <Page header="Processor">
       <Panel>
         <PanelHeader icon="&#xEEA1;" header="Intel Core i5-8600KF">
-          <Button>
+          <Button
+            onClick={() => {
+              invoke("greet", { name: "World" }).then((response) =>
+                console.log(response)
+              );
+            }}
+          >
             <Icon>&#xE16F;</Icon>
             <Text>Copy</Text>
           </Button>
