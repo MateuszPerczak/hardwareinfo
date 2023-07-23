@@ -1,17 +1,28 @@
 import "@emotion/react";
 
+type Hex = `#${string}`;
+
 declare module "@emotion/react" {
   export interface Theme {
-    background: string;
-    color: string;
-    scrollbar: string;
-    navigation: string;
-    border: string;
-    hamburger: string;
-    panel: string;
-    shadow: string;
-    button: string;
-    hover: string;
-    info: string;
+    textPrimary: Hex;
+    textSecondary: Hex;
+    textDisabled: Hex;
+    fill: Hex;
+    fillHover: Hex;
+    fillActive: Hex;
+    fillDisabled: Hex;
+    fillStrong: Hex;
+    stroke: Hex;
+    strokeHover: Hex;
+    strokeActive: Hex;
+    strokeDisabled: Hex;
+    strokeStrong: Hex;
+    background: Hex;
+    backgroundHover: Hex;
+    backgroundActive: Hex;
+    backgroundLayer: Hex;
+    backgroundSecondary: Hex;
+    backgroundStrong: Hex;
+    smoke: Hex;
   }
 }

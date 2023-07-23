@@ -1,8 +1,8 @@
-import { css, Global, Theme, useTheme } from "@emotion/react";
-import { FC, memo } from "react";
+import { css, Global, type Theme, useTheme } from "@emotion/react";
+import { memo } from "react";
 
-const GlobalStyle: FC = (): JSX.Element => {
-  const theme: Theme = useTheme();
+const GlobalStyle = (): JSX.Element => {
+  const { background, textPrimary, fillStrong }: Theme = useTheme();
   return (
     <Global
       styles={css`
@@ -12,31 +12,47 @@ const GlobalStyle: FC = (): JSX.Element => {
           box-sizing: border-box;
           margin: 0;
           padding: 0;
+          font-family: "Outfit", sans-serif;
+          /* outline: 1px dotted #0bd871aa; */
+        }
+        *:focus-visible {
+          outline: 1px solid ${textPrimary};
+        }
+        html,
+        body {
+          height: 100%;
+          scroll-behavior: smooth;
         }
         body {
-          font-family: "Poppins", sans-serif;
-          background-color: ${theme.background};
-          color: ${theme.color};
+          display: flex;
+          flex-direction: column;
+          background: ${background};
+          color: ${textPrimary};
+          overflow: hidden;
+          user-select: none;
         }
         #root {
           display: flex;
-          height: 100vh;
-          overflow: hidden;
+          flex-direction: column;
+          flex: 1;
+          min-height: 0;
         }
-        @font-face {
-          font-family: "Segoe Fluent Icons";
-          src: url("./fonts/Segoe Fluent Icons.ttf") format("truetype");
-        }
-        @font-face {
-          font-family: "Poppins";
-          src: url("./fonts/Poppins.ttf") format("truetype");
+        main {
+          display: flex;
+          flex: 1;
+          min-height: 0;
         }
         ::-webkit-scrollbar {
-          width: 4px;
+          width: 14px;
         }
         ::-webkit-scrollbar-thumb {
-          border-radius: 8px;
-          background-color: ${theme.scrollbar};
+          border: 4px solid transparent;
+          background-color: ${fillStrong};
+          background-clip: padding-box;
+          border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+          background-color: ${fillStrong};
         }
       `}
     />

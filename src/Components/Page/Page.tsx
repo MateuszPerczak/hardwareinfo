@@ -1,25 +1,27 @@
-import type { FC } from "react";
-import type PageProps from "./Page.types";
-import StyledPage, { StyledPageHeader, StyledPageContent } from "./Page.style";
+import { AnimatePresence } from "framer-motion";
 
-const Page: FC<PageProps> = ({ children, header }): JSX.Element => {
+import StyledPage, { StyledPageContent } from "./Page.styles";
+import type { PageProps } from "./Page.types";
+
+const Page = ({ menu, name, content }: PageProps): JSX.Element => {
   return (
     <StyledPage>
-      <StyledPageHeader
-        initial={{ opacity: 0, transform: "translateX(100px)" }}
-        animate={{ opacity: 1, transform: "translateX(0px)" }}
-        transition={{ type: "spring", mass: 0.2, stiffness: 200, damping: 20 }}
-      >
-        {header}
-      </StyledPageHeader>
+      {(menu || name) && (
+        <menu className="page-toolbar">
+          {name && <span className="toolbar-name">{name}</span>}
+          {menu && (
+            <div className="toolbar-content">
+              <AnimatePresence initial={false}>{menu}</AnimatePresence>
+            </div>
+          )}
+        </menu>
+      )}
       <StyledPageContent
-        animate={{ opacity: 1, transform: "translateY(0px)" }}
-        initial={{ opacity: 0, transform: "translateY(100px)" }}
-        exit={{ opacity: 0, transform: "translateY(100px)" }}
-        transition={{ type: "spring", mass: 0.2, stiffness: 200, damping: 20 }}
-        layoutScroll
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ type: "tween", duration: 0.2, ease: [0.2, 0.7, 0, 0.99] }}
       >
-        {children}
+        {content}
       </StyledPageContent>
     </StyledPage>
   );

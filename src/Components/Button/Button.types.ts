@@ -1,14 +1,9 @@
-import type { Theme } from "@emotion/react";
-import type { StyledComponent } from "@emotion/styled";
-import type { ElementType, DetailedHTMLProps, HTMLAttributes } from "react";
+import type { ButtonHTMLAttributes } from "react";
 
-type ButtonComponent = StyledComponent<
-  {
-    theme?: Theme;
-    as?: ElementType;
-  },
-  DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>,
-  Record<string, unknown>
->;
+import type { IconProps } from "../icon/Icon.types";
 
-export default ButtonComponent;
+export type ButtonProps = {
+  label?: string;
+  disabled?: boolean;
+} & IconProps &
+  ButtonHTMLAttributes<HTMLButtonElement>;

@@ -1,12 +1,18 @@
-import { FC } from "react";
-import AppProvider from "../AppProvider/AppProvider";
-import AppContent from "../AppContent/AppContent";
+import { ThemeProvider } from "@emotion/react";
+import { RouterProvider } from "react-router-dom";
 
-const App: FC = (): JSX.Element => {
+import useTheme from "@/hooks/useTheme/useTheme";
+import { router } from "@/routes/routes";
+
+import GlobalStyle from "../globalStyle/GlobalStyle";
+
+const App = (): JSX.Element => {
+  const theme = useTheme();
   return (
-    <AppProvider>
-      <AppContent />
-    </AppProvider>
+    <ThemeProvider theme={theme}>
+      <GlobalStyle />
+      <RouterProvider router={router} />
+    </ThemeProvider>
   );
 };
 

@@ -1,7 +1,7 @@
-import type { PropsWithChildren } from "react";
+import type { ReactNode } from "react";
 
-type PageProps = PropsWithChildren<{
-  header?: string;
-}>;
-
-export default PageProps;
+export interface PageProps {
+  name?: string;
+  menu?: ReactNode;
+  content: ReactNode;
+}

@@ -1,1 +1,5 @@
-declare module "react-use-system-theme";
+interface Window {
+  api: {
+    showDevTools: () => void;
+  };
+}

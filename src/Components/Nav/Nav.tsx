@@ -1,54 +1,23 @@
-import { useState, useMemo } from "react";
-import type NavProps from "./Nav.types";
-import type { FC } from "react";
-import StyledNavigation from "./Nav.style";
-import NavHamburger from "../NavHamburger/NavHamburger";
-import NavButton from "../NavButton/NavButton";
-import NavSpacer from "../NavSpacer/NavSpacer";
-import { routes } from "../../Routes/routes";
+import { memo } from "react";
 
-const Nav: FC<NavProps> = ({ setPage }): JSX.Element => {
-  const [isOpen, setIsOpen] = useState(false);
+import { Icons } from "../icon/Icon.types";
+import NavLink from "./components/navLink/NavLink";
+import StyledNav from "./Nav.styles";
 
-  const topItems = useMemo(() => {
-    return routes.filter((route) => route.position === "top");
-  }, []);
-
-  const bottomItems = useMemo(() => {
-    return routes.filter((route) => route.position === "bottom");
-  }, []);
-
+const Nav = (): JSX.Element => {
   return (
-    <StyledNavigation
-      initial={{ width: "0px" }}
-      animate={{ width: isOpen ? "200px" : "49px" }}
-      transition={{ type: "spring", mass: 0.5, stiffness: 300, damping: 30 }}
-      onMouseLeave={() => setIsOpen(false)}
-    >
-      <NavHamburger isOpen={isOpen} onClick={() => setIsOpen(!isOpen)} />
-      {topItems.map(({ header, ...route }, index) => {
-        return (
-          <NavButton
-            key={index}
-            header={header}
-            {...route}
-            onClick={() => setPage(header)}
-          />
-        );
-      })}
-      <NavSpacer />
-      {bottomItems.map(({ header, ...route }, index) => {
-        return (
-          <NavButton
-            key={index}
-            header={header}
-            {...route}
-            onClick={() => setPage(header)}
-          />
-        );
-      })}
-    </StyledNavigation>
+    <StyledNav>
+      <NavLink icon={Icons.Home} label="Home" to="home" />
+      <NavLink icon={Icons.Processor} label="Processor" to="cpu" />
+      <NavLink icon={Icons.Motherboard} label="Motherboard" to="mbr" />
+      <NavLink icon={Icons.Memory} label="Memory" to="memory" />
+      <NavLink icon={Icons.Graphics} label="Graphics" to="gpu" />
+      <NavLink icon={Icons.Network} label="Network" to="network" />
+      <NavLink icon={Icons.Storage} label="Storage" to="storage" />
+      <div className="nav-separator"></div>
+      <NavLink icon={Icons.Settings} label="Settings" to="settings" />
+    </StyledNav>
   );
 };
 
-export default Nav;
+export default memo(Nav);

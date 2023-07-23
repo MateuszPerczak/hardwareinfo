@@ -9,8 +9,11 @@
 
 - React
 - Emotion
-- framer-motion
-- Tauri
+- Framer-motion
+- Electron
+- Vite
+- Systeminformation
+- React-router-dom
 
 ## Icons
 
@@ -27,17 +30,17 @@ git clone https://github.com/MateuszPerczak/hardwareinfo
 2. Install all dependencies
 
 ```sh
-yarn
+pnpm i
 ```
 
 3. Start react development server and app
 
 ```sh
-yarn tauri dev
+pnpm dev
 ```
 
 OR if you want to build it
 
 ```sh
-yarn tauri build
+pnpm build
 ```
