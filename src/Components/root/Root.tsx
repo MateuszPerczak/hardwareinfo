@@ -24,7 +24,7 @@ const Root = (): JSX.Element => {
   }, []);
 
   useEffect(() => {
-    navigate("/library");
+    navigate("/home");
   }, []);
 
   return (

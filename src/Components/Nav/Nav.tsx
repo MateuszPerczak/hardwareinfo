@@ -8,7 +8,7 @@ const Nav = (): JSX.Element => {
   return (
     <StyledNav>
       <NavLink icon={Icons.Home} label="Home" to="home" />
-      <NavLink icon={Icons.Processor} label="Processor" to="cpu" />
+      <NavLink icon={Icons.Processor} label="Processor" to="processor" />
       <NavLink icon={Icons.Motherboard} label="Motherboard" to="mbr" />
       <NavLink icon={Icons.Memory} label="Memory" to="memory" />
       <NavLink icon={Icons.Graphics} label="Graphics" to="gpu" />

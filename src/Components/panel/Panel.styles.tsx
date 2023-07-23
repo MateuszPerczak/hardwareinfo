@@ -8,8 +8,6 @@ const StyledPanel = styled.div`
   background-color: ${({ theme: { backgroundLayer } }): string => backgroundLayer};
   border: 1px solid ${({ theme: { strokeStrong } }): string => strokeStrong};
   border-radius: 4px;
-  font-size: 12px;
-  font-weight: 300;
   .panel-header {
     display: flex;
     flex: 0 0 50px;

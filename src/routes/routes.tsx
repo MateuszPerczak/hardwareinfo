@@ -4,9 +4,8 @@ import { createBrowserRouter } from "react-router-dom";
 import Root from "@/components/root/Root";
 import Home from "@/pages/Home";
 
-// const Library = lazy(() => import("../pages/library/Library"));
 const Settings = lazy(() => import("../pages/Settings"));
-// const Playlist = lazy(() => import("../pages/playlist/Playlist"));
+const Processor = lazy(() => import("../pages/Processor"));
 // const Updates = lazy(() => import("../pages/updates/Updates"));
 
 // const Home = lazy(() => import("../pages/Home"));
@@ -29,10 +28,10 @@ export const router = createBrowserRouter([
         element: <Home />,
         path: "home",
       },
-      // {
-      //   element: <Settings />,
-      //   path: "settings",
-      // },
+      {
+        element: <Processor />,
+        path: "processor",
+      },
       // {
       //   element: <Playlist />,
       //   path: "playlist/:id",

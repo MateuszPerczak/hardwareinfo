@@ -15,6 +15,7 @@ export enum Icons {
   Refresh = "\uE72C",
   Design = "\uEB3C",
   Megaphone = "\uE789",
+  Copy = "\uE8C8",
 
   // Search = "\uE721",
   // GiftBox = "\uF133",
