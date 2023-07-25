@@ -4,6 +4,7 @@ import { join } from "node:path";
 
 import { app, BrowserWindow, ipcMain, Menu } from "electron";
 
+import { initApi } from "../api";
 import { type AppContent, Environment } from "./index.types";
 
 process.env.DIST_ELECTRON = join(__dirname, "..");
@@ -56,12 +57,16 @@ const initMainWindow = (): BrowserWindow => {
   });
 };
 
-const initApi = (): void => {
-  ipcMain.on("show-dev-tools", ({ sender }) => {
-    const window = BrowserWindow.fromWebContents(sender);
-    window && window.webContents.openDevTools();
-  });
-};
+// const initApi = (): void => {
+//   ipcMain.on("show-dev-tools", ({ sender }) => {
+//     const window = BrowserWindow.fromWebContents(sender);
+//     window && window.webContents.openDevTools();
+//   });
+
+//   // ipcMain.handle("get-cpus", () => {
+//   //   //
+//   // });
+// };
 
 const configApp = (): void => {
   Menu.setApplicationMenu(null);
