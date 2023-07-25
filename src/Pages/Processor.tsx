@@ -1,15 +1,22 @@
 import Button from "@/components/button/Button";
-import Icon from "@/components/icon/Icon";
 import { Icons } from "@/components/icon/Icon.types";
 import Label from "@/components/label/Label";
 import Page from "@/components/page/Page";
 import Panel from "@/components/panel/Panel";
 import StackPanel from "@/components/stackPanel/StackPanel";
+import useApi from "@/hooks/useApi/useApi";
 
 const Processor = (): JSX.Element => {
+  const { getCpuInformation } = useApi();
+
   return (
     <Page
       name="Processor"
+      menu={
+        <>
+          <Button icon={Icons.Refresh} label="Refresh" />
+        </>
+      }
       content={
         <>
           <Panel

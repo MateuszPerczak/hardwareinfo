@@ -16,6 +16,8 @@ export enum Icons {
   Design = "\uEB3C",
   Megaphone = "\uE789",
   Copy = "\uE8C8",
+  Repair = "\uE90F",
+  Color = "\uE790",
 
   // Search = "\uE721",
   // GiftBox = "\uF133",
@@ -40,7 +42,6 @@ export enum Icons {
   // CheckMark = "\uE73E",
   // Cancel = "\uE711",
 
-  // Color = "\uE790",
   // Info = "\uE946",
   // Path = "\uE62F",
 }

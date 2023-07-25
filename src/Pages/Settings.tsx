@@ -14,14 +14,7 @@ const Settings = (): JSX.Element => {
       }
       content={
         <>
-          {/* <Panel
-            icon={Icons.Settings}
-            label="Test"
-            description="Test description"
-            header={<Button icon={Icons.Refresh} label="Check for updates" />}
-          >
-            test
-          </Panel> */}
+          <Panel icon={Icons.Color} label="Theme" description="Choose app appearance" />
         </>
       }
     />
