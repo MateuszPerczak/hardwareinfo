@@ -1,3 +1,3 @@
 export type UseUnits = () => {
-  bytesToGiB: (bytes: number) => number;
+  convertBytes: (bytes: number) => string;
 };

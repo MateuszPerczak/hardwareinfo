@@ -11,7 +11,7 @@ const Nav = (): JSX.Element => {
       <NavLink icon={Icons.Processor} label="Processor" to="processor" />
       <NavLink icon={Icons.Motherboard} label="Motherboard" to="motherboard" />
       <NavLink icon={Icons.Memory} label="Memory" to="memory" />
-      <NavLink icon={Icons.Graphics} label="Graphics" to="gpu" />
+      <NavLink icon={Icons.Graphics} label="Graphics" to="graphics" />
       <NavLink icon={Icons.Network} label="Network" to="network" />
       <NavLink icon={Icons.Storage} label="Storage" to="storage" />
       <div className="nav-separator"></div>

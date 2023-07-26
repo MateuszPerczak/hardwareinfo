@@ -42,6 +42,10 @@ const GlobalStyle = (): JSX.Element => {
           flex: 1;
           min-height: 0;
         }
+        ::selection {
+          background: ${fillStrong};
+          color: ${background};
+        }
         ::-webkit-scrollbar {
           width: 14px;
         }

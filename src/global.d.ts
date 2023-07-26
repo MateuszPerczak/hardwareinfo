@@ -6,9 +6,9 @@ declare global {
       showDevTools: () => void;
       getMemoryLayout: () => Promise<Systeminformation.MemLayoutData[]>;
       getMemoryInformation: () => Promise<Systeminformation.MemData>;
-      getCpuInformation: () => Promise<Systeminformation.CpuData>;
+      getProcessorInformation: () => Promise<Systeminformation.CpuData>;
+      getStorageInformation: () => Promise<Systeminformation.BlockDevicesData[]>;
+      getGraphicsInformation: () => Promise<Systeminformation.GraphicsData>;
     };
   }
 }
-
-export {};

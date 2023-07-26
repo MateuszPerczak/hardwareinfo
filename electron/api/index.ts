@@ -1,17 +1,23 @@
-import { ipcMain } from "electron/main";
+import { BrowserWindow, ipcMain } from "electron/main";
 
+import { getGraphicsInformation } from "./graphics";
 import { getMemoryInformation, getMemoryLayout } from "./memory";
-import { getCpuInformation } from "./processor";
+import { getProcessorInformation } from "./processor";
+import { getStorageInformation } from "./storage";
 
 export const initApi = (): void => {
-  // ipcMain.on("show-dev-tools", ({ sender }) => {
-  //   const window = BrowserWindow.fromWebContents(sender);
-  //   window && window.webContents.openDevTools();
-  // });
+  ipcMain.on("show-dev-tools", ({ sender }) => {
+    const window = BrowserWindow.fromWebContents(sender);
+    window && window.webContents.openDevTools();
+  });
 
   // memory
   ipcMain.handle("getMemoryLayout", getMemoryLayout);
   ipcMain.handle("getMemoryInformation", getMemoryInformation);
   // cpu
-  ipcMain.handle("getCpuInformation", getCpuInformation);
+  ipcMain.handle("getProcessorInformation", getProcessorInformation);
+  // storage
+  ipcMain.handle("getStorageInformation", getStorageInformation);
+  // graphics
+  ipcMain.handle("getGraphicsInformation", getGraphicsInformation);
 };

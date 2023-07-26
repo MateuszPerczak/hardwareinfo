@@ -2,12 +2,15 @@ import { lazy } from "react";
 import { createBrowserRouter } from "react-router-dom";
 
 import Root from "@/components/root/Root";
+import Home from "@/pages/Home";
+import Settings from "@/pages/Settings";
 
-const Settings = lazy(() => import("../pages/Settings"));
 const Processor = lazy(() => import("../pages/Processor"));
-const Memory = lazy(() => import("../pages/Memory"));
 const Motherboard = lazy(() => import("../pages/Motherboard"));
-const Home = lazy(() => import("../pages/Home"));
+const Memory = lazy(() => import("../pages/memory/Memory"));
+const Graphics = lazy(() => import("../pages/Graphics"));
+const Network = lazy(() => import("../pages/Network"));
+const Storage = lazy(() => import("../pages/Storage"));
 
 export const router = createBrowserRouter([
   {
@@ -29,6 +32,18 @@ export const router = createBrowserRouter([
       {
         element: <Memory />,
         path: "memory",
+      },
+      {
+        element: <Graphics />,
+        path: "graphics",
+      },
+      {
+        element: <Network />,
+        path: "network",
+      },
+      {
+        element: <Storage />,
+        path: "storage",
       },
       {
         element: <Settings />,
