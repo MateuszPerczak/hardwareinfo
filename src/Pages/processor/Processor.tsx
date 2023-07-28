@@ -10,63 +10,12 @@ import Page from "@/components/page/Page";
 import Panel from "@/components/panel/Panel";
 import useApi from "@/hooks/useApi/useApi";
 
+import { processorInformationTemplate } from "./Processor.templates";
+
 const Processor = (): JSX.Element => {
   const { getProcessorInformation } = useApi();
 
   const processorInformation: Systeminformation.CpuData = use(getProcessorInformation());
-
-  const processorTemplate: DataTemplate<Systeminformation.CpuData>[] = [
-    {
-      key: "brand",
-      label: "Brand",
-      type: DataType.String,
-    },
-    {
-      key: "manufacturer",
-      label: "Manufacturer",
-      type: DataType.String,
-    },
-    {
-      key: "vendor",
-      label: "Vendor",
-      type: DataType.String,
-    },
-    {
-      key: "family",
-      label: "Family",
-      type: DataType.String,
-    },
-    {
-      key: "model",
-      label: "Model",
-      type: DataType.String,
-    },
-    {
-      key: "stepping",
-      label: "Stepping",
-      type: DataType.String,
-    },
-    {
-      key: "revision",
-      label: "Revision",
-      type: DataType.String,
-    },
-    {
-      key: "voltage",
-      label: "Voltage",
-      type: DataType.Volt,
-    },
-    {
-      key: "speed",
-      label: "Speed",
-      type: DataType.Megahertz,
-    },
-    {
-      key: "speedMin",
-      label: "Speed min",
-      type: DataType.Megahertz,
-    },
-  ];
 
   return (
     <Page
@@ -80,13 +29,13 @@ const Processor = (): JSX.Element => {
         <>
           <Panel
             icon={Icons.Processor}
-            label={`${processorInformation.manufacturer} ${processorInformation.brand}`}
-            description={processorInformation.family}
+            label={processorInformation.manufacturer}
+            description={processorInformation.brand}
             header={<Button icon={Icons.Copy} label="Copy" />}
           >
             <DataPanel<Systeminformation.CpuData>
               padding="10px 10px 10px 49px"
-              template={processorTemplate}
+              template={processorInformationTemplate}
               data={processorInformation}
             />
           </Panel>

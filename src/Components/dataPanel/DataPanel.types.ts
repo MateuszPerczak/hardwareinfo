@@ -2,7 +2,7 @@ import type { CSSProperties } from "react";
 
 export type DataPanelProps<P> = {
   template: DataTemplate<P>[];
-  data: P;
+  data: { [key in keyof P]?: unknown };
   fallbackValue?: string;
   padding?: CSSProperties["padding"];
 };

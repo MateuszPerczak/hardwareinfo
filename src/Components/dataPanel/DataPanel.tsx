@@ -1,7 +1,8 @@
-import { Fragment } from "react";
+import { Fragment, useMemo } from "react";
 
+import { dataTypeToFormat } from "./DataPanel.helpers";
 import StyledDataPanel from "./DataPanel.styles";
-import type { DataPanelProps, DataType } from "./DataPanel.types";
+import type { DataPanelProps } from "./DataPanel.types";
 
 const DataPanel = <P,>({
   template,
@@ -9,35 +10,26 @@ const DataPanel = <P,>({
   fallbackValue,
   ...rest
 }: DataPanelProps<P>): JSX.Element => {
-  const formatValue = (value: P[keyof P], type: DataType): string => {
-    if (value === undefined || value === null) {
-      return fallbackValue ?? "N/A";
-    }
-    value;
-
-    const typeToFormat: Record<DataType, () => string> = {
-      string: () => `${value}`,
-      volt: () => `${value} V`,
-      bytes: () => `${value} B`,
-      megahertz: () => `${value} MHz`,
-      gigahertz: () => `${value} GHz`,
-    };
-
-    return typeToFormat[type]();
-  };
-
-  return (
-    <StyledDataPanel {...rest}>
-      {template.map(({ key, label, type }, index) => {
-        return (
-          <Fragment key={`label-${index}`}>
-            <span>{label}</span>
-            <span className="data-value">{formatValue(data[key], type)}</span>
-          </Fragment>
-        );
-      })}
-    </StyledDataPanel>
+  const filledTemplate = useMemo(
+    () =>
+      template.reduce<JSX.Element[]>((acc, { key, label, type }, index) => {
+        const isDataNotEmpty = Boolean(data[key]);
+        if (key in data && (isDataNotEmpty || fallbackValue !== undefined)) {
+          acc.push(
+            <Fragment key={`label-${index}`}>
+              <span>{label}</span>
+              <span className="data-value">
+                {isDataNotEmpty ? dataTypeToFormat[type](data[key]) : fallbackValue}
+              </span>
+            </Fragment>,
+          );
+        }
+        return acc;
+      }, []),
+    [],
   );
+
+  return <StyledDataPanel {...rest}>{filledTemplate}</StyledDataPanel>;
 };
 
 export default DataPanel;

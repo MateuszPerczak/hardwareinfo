@@ -13,4 +13,10 @@ contextBridge.exposeInMainWorld("api", {
     ipcRenderer.invoke("getStorageInformation"),
   getGraphicsInformation: async (): Promise<Systeminformation.GraphicsData> =>
     ipcRenderer.invoke("getGraphicsInformation"),
+  getBiosInformation: async (): Promise<Systeminformation.BiosData> =>
+    ipcRenderer.invoke("getBiosInformation"),
+  getMotherboardInformation: async (): Promise<Systeminformation.BaseboardData> =>
+    ipcRenderer.invoke("getMotherboardInformation"),
+  getChassisInformation: async (): Promise<Systeminformation.ChassisData> =>
+    ipcRenderer.invoke("getChassisInformation"),
 });

@@ -9,6 +9,8 @@ declare global {
       getProcessorInformation: () => Promise<Systeminformation.CpuData>;
       getStorageInformation: () => Promise<Systeminformation.BlockDevicesData[]>;
       getGraphicsInformation: () => Promise<Systeminformation.GraphicsData>;
+      getBiosInformation: () => Promise<Systeminformation.BiosData>;
+      getMotherboardInformation: () => Promise<Systeminformation.BaseboardData>;
     };
   }
 }

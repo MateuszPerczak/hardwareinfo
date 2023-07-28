@@ -5,8 +5,8 @@ import Root from "@/components/root/Root";
 import Home from "@/pages/Home";
 import Settings from "@/pages/Settings";
 
-const Processor = lazy(() => import("../pages/Processor"));
-const Motherboard = lazy(() => import("../pages/Motherboard"));
+const Processor = lazy(() => import("../pages/processor/Processor"));
+const Motherboard = lazy(() => import("../pages/motherboard/Motherboard"));
 const Memory = lazy(() => import("../pages/memory/Memory"));
 const Graphics = lazy(() => import("../pages/Graphics"));
 const Network = lazy(() => import("../pages/Network"));

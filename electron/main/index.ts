@@ -77,6 +77,7 @@ const onReadyToShow = (window: BrowserWindow): void => {
   window.setAlwaysOnTop(true, "normal", 1);
   window.show();
   window.setAlwaysOnTop(false);
+  window.webContents.openDevTools();
 };
 
 const appContent: AppContent = {
