@@ -32,7 +32,7 @@ const Motherboard = (): JSX.Element => {
       content={
         <>
           <Panel
-            icon={Icons.Repair}
+            icon={Icons.Info}
             label="Bios"
             header={<Button icon={Icons.Copy} label="Copy" />}
           >

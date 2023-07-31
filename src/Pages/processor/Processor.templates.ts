@@ -14,6 +14,16 @@ export const processorInformationTemplate: DataTemplate<Systeminformation.CpuDat
     type: DataType.String,
   },
   {
+    key: "physicalCores",
+    label: "Cores",
+    type: DataType.String,
+  },
+  {
+    key: "cores",
+    label: "Threads",
+    type: DataType.String,
+  },
+  {
     key: "vendor",
     label: "Vendor",
     type: DataType.String,
@@ -29,19 +39,14 @@ export const processorInformationTemplate: DataTemplate<Systeminformation.CpuDat
     type: DataType.String,
   },
   {
+    key: "socket",
+    label: "Socket",
+    type: DataType.String,
+  },
+  {
     key: "stepping",
     label: "Stepping",
     type: DataType.String,
-  },
-  {
-    key: "revision",
-    label: "Revision",
-    type: DataType.String,
-  },
-  {
-    key: "voltage",
-    label: "Voltage",
-    type: DataType.Volt,
   },
   {
     key: "speed",
@@ -52,5 +57,15 @@ export const processorInformationTemplate: DataTemplate<Systeminformation.CpuDat
     key: "speedMin",
     label: "Speed min",
     type: DataType.Gigahertz,
+  },
+  {
+    key: "virtualization",
+    label: "Virtualization",
+    type: DataType.String,
+  },
+  {
+    key: "cache",
+    label: "Cache",
+    type: DataType.String,
   },
 ];

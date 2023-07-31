@@ -23,7 +23,7 @@ const Memory = (): JSX.Element => {
       content={
         <>
           <Panel
-            icon={Icons.Repair}
+            icon={Icons.Info}
             label="Memory information"
             header={<Button icon={Icons.Copy} label="Copy" />}
           >

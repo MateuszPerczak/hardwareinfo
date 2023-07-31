@@ -8,7 +8,7 @@ import Settings from "@/pages/Settings";
 const Processor = lazy(() => import("../pages/processor/Processor"));
 const Motherboard = lazy(() => import("../pages/motherboard/Motherboard"));
 const Memory = lazy(() => import("../pages/memory/Memory"));
-const Graphics = lazy(() => import("../pages/Graphics"));
+const Graphics = lazy(() => import("../pages/graphics/Graphics"));
 const Network = lazy(() => import("../pages/Network"));
 const Storage = lazy(() => import("../pages/Storage"));
 

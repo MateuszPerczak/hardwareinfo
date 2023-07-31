@@ -10,6 +10,7 @@ export type DataPanelProps<P> = {
 export enum DataType {
   String = "string",
   Bytes = "bytes",
+  Megabytes = "megabytes",
   Volt = "volt",
   Megahertz = "megahertz",
   Gigahertz = "gigahertz",

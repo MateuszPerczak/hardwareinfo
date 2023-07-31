@@ -1,7 +1,6 @@
 import { mem, memLayout, type Systeminformation } from "systeminformation";
 
 export const getMemoryLayout = async (): Promise<Systeminformation.MemLayoutData[]> =>
-  await memLayout();
+  memLayout();
 
-export const getMemoryInformation = async (): Promise<Systeminformation.MemData> =>
-  await mem();
+export const getMemoryInformation = async (): Promise<Systeminformation.MemData> => mem();

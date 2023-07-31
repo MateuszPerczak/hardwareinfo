@@ -18,6 +18,8 @@ export enum Icons {
   Copy = "\uE8C8",
   Repair = "\uE90F",
   Color = "\uE790",
+  Info = "\uE946",
+  Display = "\uE7F8",
 
   // Search = "\uE721",
   // GiftBox = "\uF133",
