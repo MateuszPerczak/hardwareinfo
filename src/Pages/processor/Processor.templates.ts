@@ -63,9 +63,27 @@ export const processorInformationTemplate: DataTemplate<Systeminformation.CpuDat
     label: "Virtualization",
     type: DataType.String,
   },
+];
+
+export const cacheInformationTemplate: DataTemplate<Systeminformation.CpuCacheData>[] = [
   {
-    key: "cache",
-    label: "Cache",
-    type: DataType.String,
+    key: "l1d",
+    label: "Cache L1d",
+    type: DataType.Bytes,
+  },
+  {
+    key: "l1i",
+    label: "Cache L1i",
+    type: DataType.Bytes,
+  },
+  {
+    key: "l2",
+    label: "Cache L2",
+    type: DataType.Bytes,
+  },
+  {
+    key: "l3",
+    label: "Cache L3",
+    type: DataType.Bytes,
   },
 ];

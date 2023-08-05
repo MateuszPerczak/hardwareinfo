@@ -4,13 +4,15 @@ import type { Systeminformation } from "systeminformation";
 
 import Button from "@/components/button/Button";
 import DataPanel from "@/components/dataPanel/DataPanel";
-import { type DataTemplate, DataType } from "@/components/dataPanel/DataPanel.types";
 import { Icons } from "@/components/icon/Icon.types";
 import Page from "@/components/page/Page";
 import Panel from "@/components/panel/Panel";
 import useApi from "@/hooks/useApi/useApi";
 
-import { processorInformationTemplate } from "./Processor.templates";
+import {
+  cacheInformationTemplate,
+  processorInformationTemplate,
+} from "./Processor.templates";
 
 const Processor = (): JSX.Element => {
   const { getProcessorInformation } = useApi();
@@ -37,6 +39,11 @@ const Processor = (): JSX.Element => {
               padding="10px 10px 10px 49px"
               template={processorInformationTemplate}
               data={processorInformation}
+            />
+            <DataPanel<Systeminformation.CpuCacheData>
+              padding="10px 10px 10px 49px"
+              template={cacheInformationTemplate}
+              data={processorInformation.cache}
             />
           </Panel>
         </>
