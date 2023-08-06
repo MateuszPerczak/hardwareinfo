@@ -3,7 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 
 import Root from "@/components/root/Root";
 import Home from "@/pages/Home";
-import Settings from "@/pages/Settings";
+import Settings from "@/pages/settings/Settings";
 
 const Processor = lazy(() => import("../pages/processor/Processor"));
 const Motherboard = lazy(() => import("../pages/motherboard/Motherboard"));

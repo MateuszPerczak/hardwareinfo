@@ -20,6 +20,8 @@ export enum Icons {
   Color = "\uE790",
   Info = "\uE946",
   Display = "\uE7F8",
+  ChevronUp = "\uE70E",
+  ChevronDown = "\uE70D",
 
   // Search = "\uE721",
   // GiftBox = "\uF133",
