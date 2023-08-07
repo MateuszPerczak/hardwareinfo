@@ -29,8 +29,10 @@ const Settings = (): JSX.Element => {
       content={
         <>
           <Panel icon={Icons.Color} label="Theme" description="Choose app appearance" header={<>
-          <ComboBox<Theme> options={themes} selectedOption={'system'} onChange={(): void => undefined} />
-          </>} />
+          <ComboBox<Theme> options={themes} selectedOption={'system'} onChange={(): void => undefined} disabled/>
+          </>
+        } />
+         <Panel icon={Icons.Info} label="Hardwareinfo" description="© 2023 Mateusz Perczak" />
         </>
       }
     />

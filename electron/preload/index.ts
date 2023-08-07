@@ -19,4 +19,8 @@ contextBridge.exposeInMainWorld("api", {
     ipcRenderer.invoke("getMotherboardInformation"),
   getChassisInformation: async (): Promise<Systeminformation.ChassisData> =>
     ipcRenderer.invoke("getChassisInformation"),
+  getNetworkInformation: async (): Promise<Systeminformation.NetworkInterfacesData[] | Systeminformation.NetworkInterfacesData> =>
+    ipcRenderer.invoke("getNetworkInformation"),
+  getNetworkStatsInformation: async (): Promise<Systeminformation.NetworkStatsData[]> =>
+  ipcRenderer.invoke("getNetworkStatsInformation"),
 });

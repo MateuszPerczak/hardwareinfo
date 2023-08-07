@@ -3,6 +3,7 @@ import { BrowserWindow, ipcMain } from "electron/main";
 import { getGraphicsInformation } from "./graphics";
 import { getMemoryInformation, getMemoryLayout } from "./memory";
 import { getBiosInformation, getMotherboardInformation } from "./motherboard";
+import { getNetworkInformation, getNetworkStatsInformation } from "./network";
 import { getProcessorInformation } from "./processor";
 import { getStorageInformation } from "./storage";
 
@@ -24,4 +25,7 @@ export const initApi = (): void => {
   // motherboard
   ipcMain.handle("getBiosInformation", getBiosInformation);
   ipcMain.handle("getMotherboardInformation", getMotherboardInformation);
+  // network
+  ipcMain.handle("getNetworkInformation", getNetworkInformation);
+  ipcMain.handle("getNetworkStatsInformation", getNetworkStatsInformation);
 };

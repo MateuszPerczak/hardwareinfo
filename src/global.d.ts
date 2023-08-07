@@ -11,6 +11,11 @@ declare global {
       getGraphicsInformation: () => Promise<Systeminformation.GraphicsData>;
       getBiosInformation: () => Promise<Systeminformation.BiosData>;
       getMotherboardInformation: () => Promise<Systeminformation.BaseboardData>;
+      getNetworkInformation: () => Promise<
+        | Systeminformation.NetworkInterfacesData[]
+        | Systeminformation.NetworkInterfacesData
+      >;
+      getNetworkStatsInformation: () => Promise<Systeminformation.NetworkStatsData[]>;
     };
   }
 }
