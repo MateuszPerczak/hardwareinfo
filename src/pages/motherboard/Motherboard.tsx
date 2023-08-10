@@ -8,6 +8,7 @@ import { Icons } from "@/components/icon/Icon.types";
 import Page from "@/components/page/Page";
 import Panel from "@/components/panel/Panel";
 import useApi from "@/hooks/useApi/useApi";
+import useCache from "@/hooks/useCache/useCache";
 
 import {
   biosInformationTemplate,
@@ -15,46 +16,60 @@ import {
 } from "./Motherboard.templates";
 
 const Motherboard = (): JSX.Element => {
-  const { getBiosInformation, getMotherboardInformation, showDevTools } = useApi();
+  const { getBiosInformation, getMotherboardInformation } = useApi();
 
-  const biosInformation: Systeminformation.BiosData = use(getBiosInformation());
-  const motherboardInformation: Systeminformation.BaseboardData = use(
-    getMotherboardInformation(),
-  );
+  const { data: biosInformation, fetch: fetchBiosInformation } =
+    useCache<Systeminformation.BiosData>("biosInformation", getBiosInformation);
 
-  console.log(biosInformation, motherboardInformation);
+  const { data: motherboardInformation, fetch: fetchMotherboardInformation } =
+    useCache<Systeminformation.BaseboardData>(
+      "motherboardInformation",
+      getMotherboardInformation,
+    );
 
-  useEffect(showDevTools, []);
+  const fetch = (): void => {
+    fetchBiosInformation();
+    fetchMotherboardInformation();
+  };
 
   return (
     <Page
       name="Motherboard"
+      menu={
+        <>
+          <Button icon={Icons.Refresh} label="Refresh" onClick={fetch} />
+        </>
+      }
       content={
         <>
-          <Panel
-            icon={Icons.Info}
-            label="Bios"
-            header={<Button icon={Icons.Copy} label="Copy" />}
-          >
-            <DataPanel<Systeminformation.BiosData>
-              padding="10px 10px 10px 49px"
-              template={biosInformationTemplate}
-              data={biosInformation}
-            />
-          </Panel>
+          {biosInformation && (
+            <Panel
+              icon={Icons.Info}
+              label="Bios"
+              header={<Button icon={Icons.Copy} label="Copy" />}
+            >
+              <DataPanel<Systeminformation.BiosData>
+                padding="10px 10px 10px 49px"
+                template={biosInformationTemplate}
+                data={biosInformation}
+              />
+            </Panel>
+          )}
 
-          <Panel
-            icon={Icons.Motherboard}
-            label={motherboardInformation.model}
-            description={motherboardInformation.serial}
-            header={<Button icon={Icons.Copy} label="Copy" />}
-          >
-            <DataPanel<Systeminformation.BaseboardData>
-              padding="10px 10px 10px 49px"
-              template={motherboardInformationTemplate}
-              data={motherboardInformation}
-            />
-          </Panel>
+          {motherboardInformation && (
+            <Panel
+              icon={Icons.Motherboard}
+              label={motherboardInformation.model}
+              description={motherboardInformation.serial}
+              header={<Button icon={Icons.Copy} label="Copy" />}
+            >
+              <DataPanel<Systeminformation.BaseboardData>
+                padding="10px 10px 10px 49px"
+                template={motherboardInformationTemplate}
+                data={motherboardInformation}
+              />
+            </Panel>
+          )}
         </>
       }
     />
