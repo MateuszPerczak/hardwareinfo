@@ -5,8 +5,7 @@ import DataPanel from "@/components/dataPanel/DataPanel";
 import { Icons } from "@/components/icon/Icon.types";
 import Page from "@/components/page/Page";
 import Panel from "@/components/panel/Panel";
-import useApi from "@/hooks/useApi/useApi";
-import useCache from "@/hooks/useCache/useCache";
+import useInformation from "@/stores/information/information";
 
 import {
   cacheInformationTemplate,
@@ -14,39 +13,43 @@ import {
 } from "./Processor.templates";
 
 const Processor = (): JSX.Element => {
-  const { getProcessorInformation } = useApi();
-
-  const { data: processorInformation, fetch } = useCache<Systeminformation.CpuData>(
-    "processorInformation",
-    getProcessorInformation,
+  const { processor, updateProcessor } = useInformation(
+    ({ processor, updateProcessor }) => ({
+      processor,
+      updateProcessor,
+    }),
   );
+
+  const refresh = async (): Promise<void> => {
+    await updateProcessor();
+  };
 
   return (
     <Page
       name="Processor"
       menu={
         <>
-          <Button icon={Icons.Refresh} label="Refresh" onClick={fetch} />
+          <Button icon={Icons.Refresh} label="Refresh" onClick={refresh} />
         </>
       }
       content={
         <>
-          {processorInformation && (
+          {processor && (
             <Panel
               icon={Icons.Processor}
-              label={processorInformation.manufacturer}
-              description={processorInformation.brand}
+              label={processor.manufacturer}
+              description={processor.brand}
               header={<Button icon={Icons.Copy} label="Copy" />}
             >
               <DataPanel<Systeminformation.CpuData>
                 padding="10px 10px 10px 49px"
                 template={processorInformationTemplate}
-                data={processorInformation}
+                data={processor}
               />
               <DataPanel<Systeminformation.CpuCacheData>
                 padding="10px 10px 10px 49px"
                 template={cacheInformationTemplate}
-                data={processorInformation.cache}
+                data={processor.cache}
               />
             </Panel>
           )}

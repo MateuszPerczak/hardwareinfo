@@ -1,8 +1,9 @@
 import styled from "@emotion/styled";
+import { motion } from "framer-motion";
 
 import StyledButton from "../button/Button.styles";
 
-const StyledPanel = styled.div`
+const StyledPanel = styled(motion.div)`
   display: flex;
   flex-direction: column;
   background-color: ${({ theme: { backgroundLayer } }): string => backgroundLayer};
