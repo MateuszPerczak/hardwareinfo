@@ -5,23 +5,23 @@ import DataPanel from "@/components/dataPanel/DataPanel";
 import { Icons } from "@/components/icon/Icon.types";
 import Page from "@/components/page/Page";
 import Panel from "@/components/panel/Panel";
-import useApi from "@/hooks/useApi/useApi";
-import useCache from "@/hooks/useCache/useCache";
+import useInformation from "@/stores/information/information";
 
 import { memoryInformationTemplate, memoryLayoutTemplate } from "./Memory.templates";
 
 const Memory = (): JSX.Element => {
-  const { getMemoryLayout, getMemoryInformation } = useApi();
+  const { memory, memoryModules, updateMemoryModules, updateMemory } = useInformation(
+    ({ memory, memoryModules, updateMemoryModules, updateMemory }) => ({
+      memory,
+      memoryModules,
+      updateMemoryModules,
+      updateMemory,
+    }),
+  );
 
-  const { data: memoryInformation, fetch: fetchMemoryInformation } =
-    useCache<Systeminformation.MemData>("memoryInformation", getMemoryInformation);
-  const { data: memoryLayout, fetch: fetchMemoryLayout } = useCache<
-    Systeminformation.MemLayoutData[]
-  >("memoryLayout", getMemoryLayout);
-
-  const fetch = (): void => {
-    fetchMemoryInformation();
-    fetchMemoryLayout();
+  const refresh = async (): Promise<void> => {
+    await updateMemory();
+    await updateMemoryModules();
   };
 
   return (
@@ -29,12 +29,12 @@ const Memory = (): JSX.Element => {
       name="Memory"
       menu={
         <>
-          <Button icon={Icons.Refresh} label="Refresh" onClick={fetch} />
+          <Button icon={Icons.Refresh} label="Refresh" onClick={refresh} />
         </>
       }
       content={
         <>
-          {memoryInformation && (
+          {memory && (
             <Panel
               icon={Icons.Info}
               label="Memory information"
@@ -43,13 +43,13 @@ const Memory = (): JSX.Element => {
               <DataPanel<Systeminformation.MemData>
                 padding="10px 10px 10px 49px"
                 template={memoryInformationTemplate}
-                data={memoryInformation}
+                data={memory}
               />
             </Panel>
           )}
 
-          {memoryLayout &&
-            memoryLayout.map((memory) => (
+          {memoryModules &&
+            memoryModules.map((memory) => (
               <Panel
                 icon={Icons.Memory}
                 label={memory.manufacturer}

@@ -25,7 +25,6 @@ const GlobalStyle = (): JSX.Element => {
         }
         body {
           display: flex;
-          flex-direction: column;
           background: ${background};
           color: ${textPrimary};
           overflow: hidden;
@@ -33,7 +32,6 @@ const GlobalStyle = (): JSX.Element => {
         }
         #root {
           display: flex;
-          flex-direction: column;
           flex: 1;
           min-height: 0;
         }

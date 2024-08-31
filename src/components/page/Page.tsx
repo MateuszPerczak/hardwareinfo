@@ -1,5 +1,6 @@
 import { AnimatePresence } from "framer-motion";
 
+import { pageVariant } from "./Page.animations";
 import StyledPage, { StyledPageContent } from "./Page.styles";
 import type { PageProps } from "./Page.types";
 
@@ -17,9 +18,10 @@ const Page = ({ menu, name, content }: PageProps): JSX.Element => {
         </menu>
       )}
       <StyledPageContent
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ type: "tween", duration: 0.2, ease: [0.2, 0.7, 0, 0.99] }}
+        initial={"initial"}
+        animate={"animate"}
+        exit={"exit"}
+        variants={pageVariant}
       >
         {content}
       </StyledPageContent>

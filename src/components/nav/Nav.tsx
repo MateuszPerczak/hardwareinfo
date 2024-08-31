@@ -1,23 +1,41 @@
-import { memo } from "react";
+import type { Pages } from "@/pages/pages";
 
 import { Icons } from "../icon/Icon.types";
-import NavLink from "./components/navLink/NavLink";
+import NavButton from "./components/navButton/NavButton";
+import NavSpacer from "./components/navSpacer/NavSpacer";
 import StyledNav from "./Nav.styles";
+import type { NavProps } from "./Nav.types";
 
-const Nav = (): JSX.Element => {
+const Nav = ({ navigateTo, page }: NavProps<Pages>): JSX.Element => {
   return (
     <StyledNav>
-      <NavLink icon={Icons.Home} label="Home" to="" />
-      <NavLink icon={Icons.Processor} label="Processor" to="processor" />
-      <NavLink icon={Icons.Motherboard} label="Motherboard" to="motherboard" />
-      <NavLink icon={Icons.Memory} label="Memory" to="memory" />
-      <NavLink icon={Icons.Graphics} label="Graphics" to="graphics" />
-      <NavLink icon={Icons.Network} label="Network" to="network" />
-      <NavLink icon={Icons.Storage} label="Storage" to="storage" />
-      <div className="nav-separator"></div>
-      <NavLink icon={Icons.Settings} label="Settings" to="settings" />
+      <NavButton
+        icon={Icons.Home}
+        label="Home"
+        onClick={(): void => navigateTo("home")}
+        selected={page === "home"}
+      />
+      <NavButton
+        icon={Icons.Processor}
+        label="Processor"
+        onClick={(): void => navigateTo("processor")}
+        selected={page === "processor"}
+      />
+      <NavButton
+        icon={Icons.Memory}
+        label="Memory"
+        onClick={(): void => navigateTo("memory")}
+        selected={page === "memory"}
+      />
+      <NavSpacer />
+      <NavButton
+        icon={Icons.Settings}
+        label="Settings"
+        onClick={(): void => navigateTo("settings")}
+        selected={page === "settings"}
+      />
     </StyledNav>
   );
 };
 
-export default memo(Nav);
+export default Nav;

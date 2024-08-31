@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
-import { NavLink } from "react-router-dom";
 
-const StyledNavLink = styled(NavLink)`
+import type { NavButtonProps } from "./NavButton.types";
+
+const StyledNavButton = styled.button<Pick<NavButtonProps, "selected">>`
   display: flex;
   align-items: center;
   gap: 10px;
@@ -9,18 +10,14 @@ const StyledNavLink = styled(NavLink)`
   padding: 0 10px;
   font-size: 14px;
   border-radius: 4px;
-  cursor: default;
+  border: none;
   color: ${({ theme: { textPrimary } }): string => textPrimary};
-  background-color: ${({ theme: { background } }): string => background};
-  text-decoration: none;
-  -webkit-user-drag: none;
+  background-color: ${({ theme: { background, fill }, selected }): string =>
+    selected ? fill : background};
   transition: background-color 150ms, border 150ms;
   .button-label {
     font-weight: 400;
     font-size: 12px;
-  }
-  &.active {
-    background-color: ${({ theme: { fill } }): string => fill};
   }
   &:hover {
     background-color: ${({ theme: { fillHover } }): string => fillHover};
@@ -30,4 +27,4 @@ const StyledNavLink = styled(NavLink)`
   }
 `;
 
-export default StyledNavLink;
+export default StyledNavButton;
