@@ -1,7 +1,5 @@
-import Page from "@/components/page/Page";
+import { Page } from "@/components";
 
-const Storage = (): JSX.Element => {
+export const Storage = (): JSX.Element => {
   return <Page name="Storage" content={<></>} />;
 };
-
-export default Storage;

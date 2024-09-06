@@ -2,7 +2,7 @@ import { useMemo } from "react";
 
 import type { Page, PageRendererProps } from "./PageRenderer.types";
 
-const PageRenderer = <P extends string>({
+export const PageRenderer = <P extends string>({
   page,
   pages,
   fallback,
@@ -15,5 +15,3 @@ const PageRenderer = <P extends string>({
 
   return <Component {...rest} />;
 };
-
-export default PageRenderer;

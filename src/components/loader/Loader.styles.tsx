@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
-const StyledLoader = styled.div`
-  position: absolute;
+export const StyledLoader = styled.div`
+  /* position: absolute;
   inset: 0;
   background-color: ${({ theme: { background } }): string => background};
   z-index: 10;
@@ -19,7 +19,7 @@ const StyledLoader = styled.div`
   }
   .loader-text {
     color: ${({ theme: { textSecondary } }): string => textSecondary};
-  }
+  } */
   /* .loader-spinner {
     position: absolute;
     top: 80%;
@@ -27,5 +27,3 @@ const StyledLoader = styled.div`
     transform: translate(-50%, calc(-80%));
   } */
 `;
-
-export default StyledLoader;

@@ -1,7 +1,7 @@
 import { css, Global, type Theme, useTheme } from "@emotion/react";
 import { memo } from "react";
 
-const GlobalStyle = (): JSX.Element => {
+export const GlobalStyle = memo((): JSX.Element => {
   const { background, textPrimary, fillStrong }: Theme = useTheme();
   return (
     <Global
@@ -59,6 +59,6 @@ const GlobalStyle = (): JSX.Element => {
       `}
     />
   );
-};
+});
 
-export default memo(GlobalStyle);
+GlobalStyle.displayName = "GlobalStyle";

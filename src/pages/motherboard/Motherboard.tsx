@@ -1,72 +1,70 @@
-//@ts-expect-error it exist
-import { use, useEffect } from "react";
 import type { Systeminformation } from "systeminformation";
 
-import Button from "@/components/button/Button";
-import DataPanel from "@/components/dataPanel/DataPanel";
 import { Icons } from "@/components/icon/Icon.types";
-import Page from "@/components/page/Page";
-import Panel from "@/components/panel/Panel";
-import useApi from "@/hooks/useApi/useApi";
-import useCache from "@/hooks/useCache/useCache";
 
 import {
   biosInformationTemplate,
   motherboardInformationTemplate,
 } from "./Motherboard.templates";
+import { Button, DataPanel, Page, Panel, Spinner } from "@/components";
+import { HardwareContext } from "@/contexts";
+import { useContext } from "react";
 
-const Motherboard = (): JSX.Element => {
-  const { getBiosInformation, getMotherboardInformation } = useApi();
+export const Motherboard = (): JSX.Element => {
+  const {
+    hardware: { motherboard, bios },
+    getSpecificHardware,
+    status,
+  } = useContext(HardwareContext);
 
-  const { data: biosInformation, fetch: fetchBiosInformation } =
-    useCache<Systeminformation.BiosData>("biosInformation", getBiosInformation);
-
-  const { data: motherboardInformation, fetch: fetchMotherboardInformation } =
-    useCache<Systeminformation.BaseboardData>(
-      "motherboardInformation",
-      getMotherboardInformation,
-    );
-
-  const fetch = (): void => {
-    fetchBiosInformation();
-    fetchMotherboardInformation();
+  const refresh = () => {
+    getSpecificHardware("bios");
+    getSpecificHardware("motherboard");
   };
+
+  const isLoading = status.bios === "loading" || status.motherboard === "loading";
 
   return (
     <Page
       name="Motherboard"
       menu={
         <>
-          <Button icon={Icons.Refresh} label="Refresh" onClick={fetch} />
+          <Button
+            icon={Icons.Refresh}
+            label="Refresh"
+            onClick={refresh}
+            disabled={isLoading}
+          />
         </>
       }
       content={
         <>
-          {biosInformation && (
+          {isLoading && <Spinner />}
+          {!isLoading && bios && (
             <Panel
               icon={Icons.Info}
               label="Bios"
               header={<Button icon={Icons.Copy} label="Copy" />}
             >
               <DataPanel<Systeminformation.BiosData>
-                padding="10px 10px 10px 49px"
+                style={{ padding: "10px 10px 10px 49px" }}
                 template={biosInformationTemplate}
-                data={biosInformation}
+                data={bios}
               />
             </Panel>
           )}
 
-          {motherboardInformation && (
+          {!isLoading && motherboard && (
             <Panel
               icon={Icons.Motherboard}
-              label={motherboardInformation.model}
-              description={motherboardInformation.serial}
+              label={motherboard.model}
+              description={motherboard.serial}
               header={<Button icon={Icons.Copy} label="Copy" />}
             >
               <DataPanel<Systeminformation.BaseboardData>
-                padding="10px 10px 10px 49px"
+                style={{ padding: "10px 10px 10px 49px" }}
                 template={motherboardInformationTemplate}
-                data={motherboardInformation}
+                data={motherboard}
               />
             </Panel>
           )}
@@ -75,5 +73,3 @@ const Motherboard = (): JSX.Element => {
     />
   );
 };
-
-export default Motherboard;

@@ -13,6 +13,7 @@ export enum DataType {
   Volt = "volt",
   Megahertz = "megahertz",
   Gigahertz = "gigahertz",
+  Boolean = "boolean",
 }
 
 export type DataTemplate<P> = {

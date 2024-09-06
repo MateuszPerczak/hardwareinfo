@@ -1,6 +1,6 @@
-import StyledLoader from "./Loader.styles";
+import { StyledLoader } from "./Loader.styles";
 
-const Loader = (): JSX.Element => {
+export const Loader = (): JSX.Element => {
   return (
     <StyledLoader>
       <div className="loader-wrapper">
@@ -10,5 +10,3 @@ const Loader = (): JSX.Element => {
     </StyledLoader>
   );
 };
-
-export default Loader;

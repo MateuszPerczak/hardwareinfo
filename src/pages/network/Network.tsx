@@ -1,36 +1,58 @@
-import type { Systeminformation } from "systeminformation";
-
-import Button from "@/components/button/Button";
+import { Button, DataPanel, Page, Panel } from "@/components";
 import { Icons } from "@/components/icon/Icon.types";
-import Page from "@/components/page/Page";
-import Panel from "@/components/panel/Panel";
-import useApi from "@/hooks/useApi/useApi";
-import useCache from "@/hooks/useCache/useCache";
+import { HardwareContext } from "@/contexts";
+import { useContext } from "react";
+import { networkInformationTemplate } from "./Network.templates";
 
-const Network = (): JSX.Element => {
-  const { getNetworkInformation, getNetworkStatsInformation } = useApi();
+export const Network = (): JSX.Element => {
+  const {
+    hardware: { network, networkStats },
+    getSpecificHardware,
+    status,
+  } = useContext(HardwareContext);
 
-  const { data, fetch } = useCache<
-    Systeminformation.NetworkInterfacesData | Systeminformation.NetworkInterfacesData[]
-  >("networkInformation", getNetworkInformation);
+  const refresh = () => {
+    getSpecificHardware("network");
+    getSpecificHardware("networkStats");
+  };
+
+  const isLoading = status.network === "loading" || status.networkStats === "loading";
 
   // const networkInformation = use(getNetworkInformation());
 
   // const networkStatsInformation = use(getNetworkStatsInformation());
 
-  // console.log(data);
+  console.log({ network, networkStats });
+
+  const networkAdapters = Array.isArray(network) ? network : [network];
 
   return (
     <Page
       name="Network"
       menu={
         <>
-          <Button icon={Icons.Refresh} label="Refresh" onClick={fetch} />
+          <Button
+            icon={Icons.Refresh}
+            label="Refresh"
+            onClick={refresh}
+            disabled={isLoading}
+          />
         </>
       }
-      content={<>{data && <Panel icon={Icons.Network}>Sucess</Panel>}</>}
+      content={
+        <>
+          {!isLoading && networkAdapters && (
+            <Panel
+              icon={Icons.Network}
+              label="DsaDasfs"
+              description="Network adapter"
+              header={<></>}
+            >
+              <DataPanel data={{}} template={networkInformationTemplate} />
+            </Panel>
+          )}
+        </>
+      }
     />
   );
 };
-
-export default Network;

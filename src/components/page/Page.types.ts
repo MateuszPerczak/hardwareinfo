@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 
-export interface PageProps {
+export type PageProps = {
   name?: string;
   menu?: ReactNode;
   content: ReactNode;
-}
+};

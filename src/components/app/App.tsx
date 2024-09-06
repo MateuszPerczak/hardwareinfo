@@ -1,16 +1,23 @@
 import { ThemeProvider } from "@emotion/react";
 
-import useTheme from "@/hooks/useTheme/useTheme";
+import { AppContent } from "@/components/index";
+import { useHardware, useTheme } from "@/hooks/index";
+import { HardwareContext } from "@/contexts";
+import { useEffect } from "react";
 
-import AppContent from "../appContent/AppContent";
-
-const App = (): JSX.Element => {
+export const App = (): JSX.Element => {
   const theme = useTheme();
+  const hardware = useHardware();
+
+  useEffect(() => {
+    hardware.getHardware();
+  }, []);
+
   return (
     <ThemeProvider theme={theme}>
-      <AppContent />
+      <HardwareContext.Provider value={hardware}>
+        <AppContent />
+      </HardwareContext.Provider>
     </ThemeProvider>
   );
 };
-
-export default App;

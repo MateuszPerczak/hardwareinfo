@@ -7,7 +7,7 @@ export enum ColorThemes {
 
 type Themes = Record<ColorThemes, Theme>;
 
-const themes: Themes = {
+export const themes: Themes = {
   light: {
     textPrimary: "#1a1a1a",
     textSecondary: "#5f5f5f",
@@ -53,5 +53,3 @@ const themes: Themes = {
     smoke: "#1C1C1C",
   },
 };
-
-export default themes;

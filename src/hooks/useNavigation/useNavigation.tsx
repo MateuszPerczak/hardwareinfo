@@ -2,7 +2,7 @@ import { useState } from "react";
 
 import type { NavigationState, UseNavigation } from "./useNavigation.types";
 
-const useNavigation = <P extends string>(initialPage: P): UseNavigation<P> => {
+export const useNavigation = <P extends string>(initialPage: P): UseNavigation<P> => {
   const [{ currentPage, pageHistory }, setState] = useState<NavigationState<P>>({
     currentPage: initialPage,
     pageHistory: [initialPage],
@@ -28,5 +28,3 @@ const useNavigation = <P extends string>(initialPage: P): UseNavigation<P> => {
 
   return { navigateTo, goBack, page: currentPage };
 };
-
-export default useNavigation;

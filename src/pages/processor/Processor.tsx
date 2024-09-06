@@ -1,40 +1,43 @@
 import type { Systeminformation } from "systeminformation";
 
-import Button from "@/components/button/Button";
-import DataPanel from "@/components/dataPanel/DataPanel";
+import { Button, DataPanel, Page, Panel, Spinner } from "@/components";
 import { Icons } from "@/components/icon/Icon.types";
-import Page from "@/components/page/Page";
-import Panel from "@/components/panel/Panel";
-import useInformation from "@/stores/information/information";
 
 import {
   cacheInformationTemplate,
   processorInformationTemplate,
 } from "./Processor.templates";
+import { HardwareContext } from "@/contexts";
+import { useContext } from "react";
 
-const Processor = (): JSX.Element => {
-  const { processor, updateProcessor } = useInformation(
-    ({ processor, updateProcessor }) => ({
-      processor,
-      updateProcessor,
-    }),
-  );
+export const Processor = (): JSX.Element => {
+  const {
+    hardware: { processor },
+    getSpecificHardware,
+    status,
+  } = useContext(HardwareContext);
 
-  const refresh = async (): Promise<void> => {
-    await updateProcessor();
-  };
+  const refresh = () => getSpecificHardware("processor");
+
+  const isLoading = status.processor === "loading";
 
   return (
     <Page
       name="Processor"
       menu={
         <>
-          <Button icon={Icons.Refresh} label="Refresh" onClick={refresh} />
+          <Button
+            icon={Icons.Refresh}
+            label="Refresh"
+            onClick={refresh}
+            disabled={isLoading}
+          />
         </>
       }
       content={
         <>
-          {processor && (
+          {isLoading && <Spinner />}
+          {!isLoading && processor && (
             <Panel
               icon={Icons.Processor}
               label={processor.manufacturer}
@@ -58,5 +61,3 @@ const Processor = (): JSX.Element => {
     />
   );
 };
-
-export default Processor;

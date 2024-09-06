@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-const StyledLabel = styled.div`
+export const StyledLabel = styled.div`
   display: flex;
   flex-direction: column;
   .label {
@@ -12,5 +12,3 @@ const StyledLabel = styled.div`
     color: ${({ theme: { textSecondary } }): string => textSecondary};
   }
 `;
-
-export default StyledLabel;

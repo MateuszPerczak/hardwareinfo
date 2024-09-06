@@ -16,6 +16,7 @@ declare global {
         | Systeminformation.NetworkInterfacesData
       >;
       getNetworkStatsInformation: () => Promise<Systeminformation.NetworkStatsData[]>;
+      getUSBformation: () => Promise<Systeminformation.UsbData[]>;
     };
   }
 }

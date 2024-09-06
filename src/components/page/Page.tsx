@@ -1,10 +1,10 @@
 import { AnimatePresence } from "framer-motion";
 
 import { pageVariant } from "./Page.animations";
-import StyledPage, { StyledPageContent } from "./Page.styles";
+import { StyledPage, StyledPageContent } from "./Page.styles";
 import type { PageProps } from "./Page.types";
 
-const Page = ({ menu, name, content }: PageProps): JSX.Element => {
+export const Page = ({ menu, name, content }: PageProps): JSX.Element => {
   return (
     <StyledPage>
       {(menu || name) && (
@@ -18,9 +18,9 @@ const Page = ({ menu, name, content }: PageProps): JSX.Element => {
         </menu>
       )}
       <StyledPageContent
-        initial={"initial"}
-        animate={"animate"}
-        exit={"exit"}
+        initial="initial"
+        animate="animate"
+        exit="exit"
         variants={pageVariant}
       >
         {content}
@@ -28,5 +28,3 @@ const Page = ({ menu, name, content }: PageProps): JSX.Element => {
     </StyledPage>
   );
 };
-
-export default Page;

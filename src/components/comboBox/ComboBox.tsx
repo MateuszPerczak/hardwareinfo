@@ -1,11 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 
-import Icon from "../icon/Icon";
+import { Icon } from "@/components/index";
+
 import { Icons } from "../icon/Icon.types";
-import StyledComboBox from "./ComboBox.styles";
+import { StyledComboBox } from "./ComboBox.styles";
 import type { ComboBoxOption, ComboBoxProps } from "./ComboBox.types";
 
-const ComboBox = <T,>({
+export const ComboBox = <T,>({
   options,
   selectedOption,
   disabled,
@@ -62,5 +63,3 @@ const ComboBox = <T,>({
     </StyledComboBox>
   );
 };
-
-export default ComboBox;

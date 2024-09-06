@@ -1,35 +1,42 @@
 import type { Systeminformation } from "systeminformation";
 
-import Button from "@/components/button/Button";
-import DataPanel from "@/components/dataPanel/DataPanel";
 import { Icons } from "@/components/icon/Icon.types";
-import Page from "@/components/page/Page";
-import Panel from "@/components/panel/Panel";
-import useApi from "@/hooks/useApi/useApi";
-import useCache from "@/hooks/useCache/useCache";
+import { Button, DataPanel, Page, Panel, Spinner } from "@/components/index";
 
 import { controllerInformationTemplate } from "./Graphics.templates";
+import { HardwareContext } from "@/contexts";
+import { useContext } from "react";
 
-const Graphics = (): JSX.Element => {
-  const { getGraphicsInformation } = useApi();
+export const Graphics = (): JSX.Element => {
+  const {
+    hardware: { graphics },
+    getSpecificHardware,
+    status,
+  } = useContext(HardwareContext);
 
-  const { data, fetch } = useCache<Systeminformation.GraphicsData>(
-    "graphicsInformation",
-    getGraphicsInformation,
-  );
+  const refresh = () => getSpecificHardware("graphics");
+
+  const isLoading = status.graphics === "loading";
 
   return (
     <Page
       name="Graphics"
       menu={
         <>
-          <Button icon={Icons.Refresh} label="Refresh" onClick={fetch} />
+          <Button
+            icon={Icons.Refresh}
+            label="Refresh"
+            onClick={refresh}
+            disabled={isLoading}
+          />
         </>
       }
       content={
         <>
-          {data &&
-            data.controllers.map((controller, index) => (
+          {isLoading && <Spinner />}
+          {!isLoading &&
+            graphics &&
+            graphics.controllers.map((controller, index) => (
               <Panel
                 icon={Icons.Graphics}
                 label={controller.model}
@@ -38,7 +45,7 @@ const Graphics = (): JSX.Element => {
                 key={`controller-${index}`}
               >
                 <DataPanel<Systeminformation.GraphicsControllerData>
-                  padding="10px 10px 10px 49px"
+                  style={{ padding: "10px 10px 10px 49px" }}
                   template={controllerInformationTemplate}
                   data={controller}
                 />
@@ -49,5 +56,3 @@ const Graphics = (): JSX.Element => {
     />
   );
 };
-
-export default Graphics;

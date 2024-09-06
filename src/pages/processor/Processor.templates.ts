@@ -61,7 +61,7 @@ export const processorInformationTemplate: DataTemplate<Systeminformation.CpuDat
   {
     key: "virtualization",
     label: "Virtualization",
-    type: DataType.String,
+    type: DataType.Boolean,
   },
 ];
 

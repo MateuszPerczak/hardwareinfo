@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
-const StyledPage = styled.article`
+export const StyledPage = styled.article`
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -34,5 +34,3 @@ export const StyledPageContent = styled(motion.section)`
   overflow-y: scroll;
   padding: 10px 2px 10px 10px;
 `;
-
-export default StyledPage;

@@ -1,8 +1,9 @@
-import Icon from "../icon/Icon";
-import StyledButton from "./Button.styles";
+import { Icon } from "@/components/index";
+
+import { StyledButton } from "./Button.styles";
 import type { ButtonProps } from "./Button.types";
 
-const Button = ({ label, icon, size, ...rest }: ButtonProps): JSX.Element => {
+export const Button = ({ label, icon, size, ...rest }: ButtonProps): JSX.Element => {
   return (
     <StyledButton {...rest}>
       <Icon icon={icon} size={size ?? 12} />
@@ -10,5 +11,3 @@ const Button = ({ label, icon, size, ...rest }: ButtonProps): JSX.Element => {
     </StyledButton>
   );
 };
-
-export default Button;

@@ -1,55 +1,59 @@
 import type { Systeminformation } from "systeminformation";
 
-import Button from "@/components/button/Button";
-import DataPanel from "@/components/dataPanel/DataPanel";
+import { Button, DataPanel, Page, Panel, Spinner } from "@/components";
 import { Icons } from "@/components/icon/Icon.types";
-import Page from "@/components/page/Page";
-import Panel from "@/components/panel/Panel";
-import useInformation from "@/stores/information/information";
 
 import { memoryInformationTemplate, memoryLayoutTemplate } from "./Memory.templates";
+import { useContext } from "react";
+import { HardwareContext } from "@/contexts";
 
-const Memory = (): JSX.Element => {
-  const { memory, memoryModules, updateMemoryModules, updateMemory } = useInformation(
-    ({ memory, memoryModules, updateMemoryModules, updateMemory }) => ({
-      memory,
-      memoryModules,
-      updateMemoryModules,
-      updateMemory,
-    }),
-  );
+export const Memory = (): JSX.Element => {
+  const {
+    hardware: { memory, memoryLayout },
+    getSpecificHardware,
+    status,
+  } = useContext(HardwareContext);
 
-  const refresh = async (): Promise<void> => {
-    await updateMemory();
-    await updateMemoryModules();
+  const refresh = async () => {
+    getSpecificHardware("memory");
+    getSpecificHardware("memoryLayout");
   };
+
+  const isLoading = status.memory === "loading" || status.memoryLayout === "loading";
 
   return (
     <Page
       name="Memory"
       menu={
         <>
-          <Button icon={Icons.Refresh} label="Refresh" onClick={refresh} />
+          <Button
+            icon={Icons.Refresh}
+            label="Refresh"
+            onClick={refresh}
+            disabled={isLoading}
+          />
         </>
       }
       content={
         <>
-          {memory && (
+          {isLoading && <Spinner />}
+          {!isLoading && memory && (
             <Panel
               icon={Icons.Info}
               label="Memory information"
               header={<Button icon={Icons.Copy} label="Copy" />}
             >
               <DataPanel<Systeminformation.MemData>
-                padding="10px 10px 10px 49px"
+                style={{ padding: "10px 10px 10px 49px" }}
                 template={memoryInformationTemplate}
                 data={memory}
               />
             </Panel>
           )}
 
-          {memoryModules &&
-            memoryModules.map((memory) => (
+          {!isLoading &&
+            memoryLayout &&
+            memoryLayout.map((memory) => (
               <Panel
                 icon={Icons.Memory}
                 label={memory.manufacturer}
@@ -58,7 +62,7 @@ const Memory = (): JSX.Element => {
                 header={<Button icon={Icons.Copy} label="Copy" />}
               >
                 <DataPanel<Systeminformation.MemLayoutData>
-                  padding="10px 10px 10px 49px"
+                  style={{ padding: "10px 10px 10px 49px" }}
                   template={memoryLayoutTemplate}
                   data={memory}
                 />
@@ -69,5 +73,3 @@ const Memory = (): JSX.Element => {
     />
   );
 };
-
-export default Memory;

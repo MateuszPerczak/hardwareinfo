@@ -1,28 +1,21 @@
-import Icon from "../icon/Icon";
-import StyledPanel from "./Panel.styles";
-import type { PanelProps } from "./Panel.types";
+import { Icon } from "@/components/index";
 
-const Panel = ({
+import { StyledPanel } from "./Panel.styles";
+import type { PanelProps } from "./Panel.types";
+import { panelVariants } from "./Panel.animations";
+
+export const Panel = ({
   label,
   description,
   header,
   children,
-  ...rest
+  ...iconProps
 }: PanelProps): JSX.Element => {
   return (
-    <StyledPanel
-      variants={{
-        initial: { opacity: 0, y: 40 },
-        animate: {
-          opacity: 1,
-          y: 0,
-          transition: { type: "spring", mass: 0.2, stiffness: 120, damping: 10 },
-        },
-      }}
-    >
+    <StyledPanel variants={panelVariants}>
       <div className="panel-header">
         <div className="panel-header-info">
-          <Icon {...rest} />
+          <Icon {...iconProps} />
           <div>
             {label && <p>{label}</p>}
             {description && (
@@ -36,5 +29,3 @@ const Panel = ({
     </StyledPanel>
   );
 };
-
-export default Panel;

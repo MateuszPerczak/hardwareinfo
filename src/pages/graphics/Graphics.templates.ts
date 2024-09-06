@@ -22,7 +22,7 @@ export const controllerInformationTemplate: DataTemplate<Systeminformation.Graph
     {
       key: "vramDynamic",
       label: "VRAM dynamic",
-      type: DataType.String,
+      type: DataType.Boolean,
     },
     {
       key: "bus",

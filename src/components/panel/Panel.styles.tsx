@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import { motion } from "framer-motion";
 
-import StyledButton from "../button/Button.styles";
+import { StyledButton } from "../button/Button.styles";
 
-const StyledPanel = styled(motion.div)`
+export const StyledPanel = styled(motion.div)`
   display: flex;
   flex-direction: column;
   background-color: ${({ theme: { backgroundLayer } }): string => backgroundLayer};
@@ -43,5 +43,3 @@ const StyledPanel = styled(motion.div)`
     height: 33px;
   }
 `;
-
-export default StyledPanel;

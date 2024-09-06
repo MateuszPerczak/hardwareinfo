@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-const StyledButton = styled.button`
+export const StyledButton = styled.button`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -33,5 +33,3 @@ const StyledButton = styled.button`
     outline: 1px solid ${({ theme: { textPrimary } }): string => textPrimary};
   }
 `;
-
-export default StyledButton;

@@ -17,4 +17,7 @@ export const dataTypeToFormat: Record<DataType, (value: unknown) => string> = {
   volt: (value) => `${value} V`,
   bytes: (value) => `${convertBytes(value as number)}`,
   megabytes: (value) => `${convertBytes(value as number, 2)}`,
+  boolean: (value) => {
+    return Boolean(value) ? "Yes" : "No";
+  },
 };

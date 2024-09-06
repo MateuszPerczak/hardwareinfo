@@ -1,6 +1,6 @@
 import type { IconProps } from "../icon/Icon.types";
 
-export interface BadgeProps extends IconProps {
+export type BadgeProps = {
   label?: string;
   transition?: boolean;
-}
+} & IconProps;

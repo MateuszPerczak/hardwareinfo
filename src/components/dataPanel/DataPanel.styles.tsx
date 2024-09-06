@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-const StyledDataPanel = styled.div`
+export const StyledDataPanel = styled.div`
   display: grid;
   grid-template-columns: 200px 1fr;
   grid-template-rows: auto;
@@ -13,5 +13,3 @@ const StyledDataPanel = styled.div`
     user-select: text;
   }
 `;
-
-export default StyledDataPanel;

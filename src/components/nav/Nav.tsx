@@ -5,7 +5,7 @@ import { NavButton, NavSpacer } from "./components";
 import { StyledNav } from "./Nav.styles";
 import type { NavProps } from "./Nav.types";
 
-const Nav = ({ navigateTo, page }: NavProps<Pages>): JSX.Element => {
+export const Nav = ({ navigateTo, page }: NavProps<Pages>): JSX.Element => {
   return (
     <StyledNav>
       <NavButton
@@ -21,6 +21,12 @@ const Nav = ({ navigateTo, page }: NavProps<Pages>): JSX.Element => {
         selected={page === "processor"}
       />
       <NavButton
+        icon={Icons.Motherboard}
+        label="Motherboard"
+        onClick={(): void => navigateTo("motherboard")}
+        selected={page === "motherboard"}
+      />
+      <NavButton
         icon={Icons.Memory}
         label="Memory"
         onClick={(): void => navigateTo("memory")}
@@ -32,6 +38,18 @@ const Nav = ({ navigateTo, page }: NavProps<Pages>): JSX.Element => {
         onClick={(): void => navigateTo("graphics")}
         selected={page === "graphics"}
       />
+      <NavButton
+        icon={Icons.Network}
+        label="Network"
+        onClick={(): void => navigateTo("network")}
+        selected={page === "network"}
+      />
+      <NavButton
+        icon={Icons.Usb}
+        label="Usb"
+        onClick={(): void => navigateTo("usb")}
+        selected={page === "usb"}
+      />
       <NavSpacer />
       <NavButton
         icon={Icons.Settings}
@@ -42,5 +60,3 @@ const Nav = ({ navigateTo, page }: NavProps<Pages>): JSX.Element => {
     </StyledNav>
   );
 };
-
-export default Nav;

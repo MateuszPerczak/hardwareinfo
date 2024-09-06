@@ -6,6 +6,7 @@ import { getBiosInformation, getMotherboardInformation } from "./motherboard";
 import { getNetworkInformation, getNetworkStatsInformation } from "./network";
 import { getProcessorInformation } from "./processor";
 import { getStorageInformation } from "./storage";
+import { getUSBformation } from "./usb";
 
 export const initApi = (): void => {
   ipcMain.on("show-dev-tools", ({ sender }) => {
@@ -28,4 +29,5 @@ export const initApi = (): void => {
   // network
   ipcMain.handle("getNetworkInformation", getNetworkInformation);
   ipcMain.handle("getNetworkStatsInformation", getNetworkStatsInformation);
+  ipcMain.handle("getUSBformation", getUSBformation);
 };

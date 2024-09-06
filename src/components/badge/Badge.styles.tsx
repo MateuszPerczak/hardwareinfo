@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 import type { BadgeProps } from "./Badge.types";
 
-const StyledBadge = styled.span<Pick<BadgeProps, "transition">>`
+export const StyledBadge = styled.span<Pick<BadgeProps, "transition">>`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -29,5 +29,3 @@ const StyledBadge = styled.span<Pick<BadgeProps, "transition">>`
     }
   }
 `;
-
-export default StyledBadge;

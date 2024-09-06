@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 import type { StackPanelProps } from "./StackPanel.types";
 
-const StyledStackPanel = styled.div<StackPanelProps>`
+export const StyledStackPanel = styled.div<StackPanelProps>`
   display: flex;
   flex: ${({ flex }): StackPanelProps["flex"] => flex ?? 0};
   flex-direction: ${({ flexDirection }): StackPanelProps["flexDirection"] =>
@@ -20,5 +20,3 @@ const StyledStackPanel = styled.div<StackPanelProps>`
     return padding ?? 0;
   }};
 `;
-
-export default StyledStackPanel;

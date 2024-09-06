@@ -1,10 +1,10 @@
 import { Fragment, useMemo } from "react";
 
 import { dataTypeToFormat } from "./DataPanel.helpers";
-import StyledDataPanel from "./DataPanel.styles";
+import { StyledDataPanel } from "./DataPanel.styles";
 import type { DataPanelProps } from "./DataPanel.types";
 
-const DataPanel = <P,>({
+export const DataPanel = <P,>({
   template,
   data,
   fallbackValue,
@@ -32,5 +32,3 @@ const DataPanel = <P,>({
 
   return <StyledDataPanel {...rest}>{filledTemplate}</StyledDataPanel>;
 };
-
-export default DataPanel;
