@@ -14,9 +14,6 @@
 - Vite
 - Systeminformation
 - v8-compile-cache
-- React-router-dom
-- React-query
-- Zustand
 
 ## Icons
 
