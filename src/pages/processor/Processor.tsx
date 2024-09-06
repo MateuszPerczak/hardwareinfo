@@ -42,12 +42,12 @@ const Processor = (): JSX.Element => {
               header={<Button icon={Icons.Copy} label="Copy" />}
             >
               <DataPanel<Systeminformation.CpuData>
-                padding="10px 10px 10px 49px"
+                style={{ padding: "10px 10px 10px 49px" }}
                 template={processorInformationTemplate}
                 data={processor}
               />
               <DataPanel<Systeminformation.CpuCacheData>
-                padding="10px 10px 10px 49px"
+                style={{ padding: "10px 10px 10px 49px" }}
                 template={cacheInformationTemplate}
                 data={processor.cache}
               />

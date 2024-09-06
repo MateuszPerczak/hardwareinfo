@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 
-const StyledNav = styled.nav`
+export const StyledNav = styled.nav`
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -9,5 +9,3 @@ const StyledNav = styled.nav`
   border-right: 1px solid ${({ theme: { stroke } }): string => stroke};
   padding: 10px;
 `;
-
-export default StyledNav;

@@ -1,9 +1,8 @@
 import type { Pages } from "@/pages/pages";
 
 import { Icons } from "../icon/Icon.types";
-import NavButton from "./components/navButton/NavButton";
-import NavSpacer from "./components/navSpacer/NavSpacer";
-import StyledNav from "./Nav.styles";
+import { NavButton, NavSpacer } from "./components";
+import { StyledNav } from "./Nav.styles";
 import type { NavProps } from "./Nav.types";
 
 const Nav = ({ navigateTo, page }: NavProps<Pages>): JSX.Element => {
@@ -26,6 +25,12 @@ const Nav = ({ navigateTo, page }: NavProps<Pages>): JSX.Element => {
         label="Memory"
         onClick={(): void => navigateTo("memory")}
         selected={page === "memory"}
+      />
+      <NavButton
+        icon={Icons.Graphics}
+        label="Graphics"
+        onClick={(): void => navigateTo("graphics")}
+        selected={page === "graphics"}
       />
       <NavSpacer />
       <NavButton

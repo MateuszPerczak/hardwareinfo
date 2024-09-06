@@ -1,7 +1,9 @@
-export interface IconProps {
+import type { DetailedHTMLProps, HTMLAttributes } from "react";
+
+export type IconProps = {
   icon: Icons;
   size?: number;
-}
+} & DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>;
 
 export enum Icons {
   Home = "\uE80F",
@@ -22,6 +24,7 @@ export enum Icons {
   Display = "\uE7F8",
   ChevronUp = "\uE70E",
   ChevronDown = "\uE70D",
+  Sync = "\uEDAB",
 
   // Search = "\uE721",
   // GiftBox = "\uF133",

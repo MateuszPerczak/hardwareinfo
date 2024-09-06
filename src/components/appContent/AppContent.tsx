@@ -23,25 +23,25 @@ const AppContent = (): JSX.Element => {
     }),
   );
 
-  useEffect(() => {
-    (async (): Promise<void> => {
-      await updateProcessor();
-      await updateMemory();
-      await updateMemoryModules();
-      setIsAppLoading(false);
-    })();
-  }, []);
+  // useEffect(() => {
+  //   (async (): Promise<void> => {
+  //     await updateProcessor();
+  //     await updateMemory();
+  //     await updateMemoryModules();
+  //     setIsAppLoading(false);
+  //   })();
+  // }, []);
 
   return (
     <>
       <GlobalStyle />
-      {isAppLoading && <Loader />}
       <Nav {...navigation} />
+      {/* <Nav {...navigation} />
       <main>
         <AnimatePresence initial={false}>
           <PageRenderer<Pages> {...navigation} pages={pages} fallback={<>Error</>} />
         </AnimatePresence>
-      </main>
+      </main> */}
     </>
   );
 };

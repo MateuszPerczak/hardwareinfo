@@ -1,11 +1,10 @@
-import type { CSSProperties } from "react";
+import type { DetailedHTMLProps, HTMLAttributes } from "react";
 
 export type DataPanelProps<P> = {
   template: DataTemplate<P>[];
   data: { [key in keyof P]?: unknown };
   fallbackValue?: string;
-  padding?: CSSProperties["padding"];
-};
+} & DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
 
 export enum DataType {
   String = "string",

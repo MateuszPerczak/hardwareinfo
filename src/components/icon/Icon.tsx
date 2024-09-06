@@ -1,10 +1,23 @@
 import { memo } from "react";
 
-import StyledIcon from "./Icon.styles";
 import type { IconProps } from "./Icon.types";
 
-const Icon = ({ icon, ...rest }: IconProps): JSX.Element => {
-  return <StyledIcon {...rest}>{icon}</StyledIcon>;
-};
+// font-family: "Segoe Fluent Icons";
+// size ?? 16
 
-export default memo(Icon);
+export const Icon = memo(({ icon, size, ...rest }: IconProps): JSX.Element => {
+  return (
+    <span
+      {...rest}
+      style={{
+        fontFamily: "Segoe Fluent Icons",
+        fontSize: size ?? 16,
+        ...rest.style,
+      }}
+    >
+      {icon}
+    </span>
+  );
+});
+
+Icon.displayName = "Icon";

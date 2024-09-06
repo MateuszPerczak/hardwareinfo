@@ -2,7 +2,7 @@ import "v8-compile-cache";
 
 import { join } from "node:path";
 
-import { app, BrowserWindow, ipcMain, Menu } from "electron";
+import { app, BrowserWindow, Menu } from "electron";
 
 import { initApi } from "../api";
 import { type AppContent, Environment } from "./index.types";
@@ -77,13 +77,12 @@ const onReadyToShow = (window: BrowserWindow): void => {
   window.setAlwaysOnTop(true, "normal", 1);
   window.show();
   window.setAlwaysOnTop(false);
-  window.webContents.openDevTools();
 };
 
 const appContent: AppContent = {
   development: (window: BrowserWindow) => {
     window.loadURL(url);
-    // window.webContents.openDevTools();
+    window.webContents.openDevTools({ mode: "detach" });
   },
   production: (window: BrowserWindow) => {
     window.loadFile(indexHtml);

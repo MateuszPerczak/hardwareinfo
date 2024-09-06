@@ -2,7 +2,7 @@ import styled from "@emotion/styled";
 
 import type { NavButtonProps } from "./NavButton.types";
 
-const StyledNavButton = styled.button<Pick<NavButtonProps, "selected">>`
+export const StyledNavButton = styled.button<Pick<NavButtonProps, "selected">>`
   display: flex;
   align-items: center;
   gap: 10px;
@@ -25,6 +25,16 @@ const StyledNavButton = styled.button<Pick<NavButtonProps, "selected">>`
   &:active {
     background-color: ${({ theme: { fillActive } }): string => fillActive};
   }
-`;
+  .syncing {
+    animation: syncing 1s linear infinite;
+  }
 
-export default StyledNavButton;
+  @keyframes syncing {
+    from {
+      rotate: 0deg;
+    }
+    to {
+      rotate: 360deg;
+    }
+  }
+`;
