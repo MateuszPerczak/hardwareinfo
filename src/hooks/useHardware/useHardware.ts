@@ -1,61 +1,100 @@
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 
+import { hardwareProperties } from "./useHardware.hardware";
 import type {
   HardwareId,
   HardwareProperties,
   HardwareState,
-  Status,
+  HardwareStatus,
 } from "./useHardware.types";
-import { hardwareProperties } from "./useHardware.hardware";
 
 export const useHardware = () => {
+  const hardwareIds: HardwareId[] = [
+    "memory",
+    "memoryLayout",
+    "processor",
+    "graphics",
+    "bios",
+    "motherboard",
+    "network",
+    "usb",
+    "storage",
+  ];
+
   const [state, setState] = useState<HardwareState>({
-    status: {
-      memory: "loading",
-      memoryLayout: "loading",
-      processor: "loading",
-      graphics: "loading",
-      bios: "loading",
-      motherboard: "loading",
-      network: "loading",
-      networkStats: "loading",
-      usb: "loading",
-    },
+    status: hardwareIds.reduce(
+      (acc, hardwareId) => ({
+        ...acc,
+        [hardwareId]: {
+          isPreLoaded: false,
+          isLoading: false,
+          error: false,
+        },
+      }),
+      {},
+    ) as HardwareState["status"],
     hardware: {},
   });
 
   const _saveHardware = (
     hardwareId: HardwareId,
     hardware: Awaited<ReturnType<HardwareProperties["getHardware"]>>,
-  ) =>
+  ): void =>
     setState((prevState) => ({
       ...prevState,
       hardware: { ...prevState.hardware, [hardwareId]: hardware },
     }));
 
-  const _updateStatus = (hardwareId: HardwareId, status: Status) => {
+  const _updateStatus = (
+    hardwareId: HardwareId,
+    status: Partial<HardwareStatus>,
+  ): void => {
     setState((prevState) => ({
       ...prevState,
-      status: { ...prevState.status, [hardwareId]: status },
+      status: {
+        ...prevState.status,
+        [hardwareId]: { ...prevState.status[hardwareId], ...status },
+      },
     }));
   };
 
-  const getHardware = async () => {
+  const preloadHardware = async (): Promise<void> => {
+    setState((prevState) => ({
+      ...prevState,
+      status: Object.keys(prevState.status).reduce((acc, hardwareId) => {
+        acc[hardwareId as HardwareId].isLoading = true;
+        return acc;
+      }, prevState.status),
+    }));
+
     for (const { id, getHardware } of hardwareProperties) {
-      _updateStatus(id, "loading");
       try {
         const hardware = await getHardware();
         _saveHardware(id, hardware);
-      } catch (error) {
-        //
+      } catch {
+        _updateStatus(id, { error: true });
       } finally {
-        _updateStatus(id, "done");
+        _updateStatus(id, { isLoading: false, isPreLoaded: true });
       }
     }
   };
 
-  const getSpecificHardware = async (hardwareId: HardwareId) => {
-    _updateStatus(hardwareId, "loading");
+  const getHardware = async (): Promise<void> => {
+    for (const { id, getHardware } of hardwareProperties) {
+      _updateStatus(id, { isLoading: true });
+      try {
+        const hardware = await getHardware();
+        _saveHardware(id, hardware);
+      } catch {
+        _updateStatus(id, { error: true });
+      } finally {
+        _updateStatus(id, { isLoading: false });
+      }
+    }
+  };
+
+  const getSpecificHardware = async (hardwareId: HardwareId): Promise<void> => {
+    _updateStatus(hardwareId, { isLoading: true });
     const hardwareMatch = hardwareProperties.find(({ id }) => id === hardwareId);
     if (hardwareMatch === undefined) {
       throw new Error(`Cannot find hardware "${hardwareId}" `);
@@ -63,22 +102,39 @@ export const useHardware = () => {
     try {
       const hardware = await hardwareMatch.getHardware();
       _saveHardware(hardwareId, hardware);
-      //
+    } catch {
+      _updateStatus(hardwareId, { error: true });
     } finally {
-      _updateStatus(hardwareId, "done");
+      _updateStatus(hardwareId, { isLoading: false });
     }
   };
 
-  const isBusy = useMemo(
-    () => Object.values(state.status).some((status) => status === "loading"),
+  const getHardwareStatus = (...hardwareIds: HardwareId[]): HardwareStatus => {
+    return hardwareIds.reduce<HardwareStatus>(
+      (acc, hardwareId) => ({
+        ...acc,
+        error: acc.error || state.status[hardwareId].error,
+        isLoading: acc.isLoading || state.status[hardwareId].isLoading,
+      }),
+      {
+        error: false,
+        isLoading: false,
+        isPreLoaded: false,
+      },
+    );
+  };
+
+  const isLoading = useMemo(
+    () => Object.values(state.status).some(({ isLoading }) => isLoading),
     [state.status],
   );
 
   return {
     getSpecificHardware,
     getHardware,
-    status: state.status,
+    getHardwareStatus,
+    preloadHardware,
     hardware: state.hardware,
-    isBusy,
+    isLoading,
   } as const;
 };

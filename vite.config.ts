@@ -6,7 +6,6 @@ import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import electron from "vite-electron-plugin";
 import { loadViteEnv } from "vite-electron-plugin/plugin";
-import svgr from "vite-plugin-svgr";
 
 // https://vitejs.dev/config/
 export default defineConfig(() => {
@@ -33,14 +32,6 @@ export default defineConfig(() => {
         plugins: [loadViteEnv()],
       }),
       eslintPlugin(),
-      svgr({
-        svgrOptions: {
-          icon: true,
-          svgProps: {
-            fill: "currentColor",
-          },
-        },
-      }),
     ],
     clearScreen: false,
   };

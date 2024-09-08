@@ -1,29 +1,31 @@
 {
-  "appId": "YourAppID",
+  "appId": "Hardwareinfo",
   "asar": true,
   "directories": {
     "output": "release/${version}"
   },
-  "files": [
-    "dist-electron",
-    "dist"
-  ],
+  "files": ["dist-electron", "dist"],
   "win": {
     "target": [
       {
         "target": "nsis",
-        "arch": [
-          "x64"
-        ]
+        "arch": ["x64"]
+      },
+      {
+        "target": "portable",
+        "arch": ["x64"]
       }
     ],
-    "artifactName": "${productName}_${version}.${ext}"
+    "artifactName": "${productName}.${ext}"
+  },
+  "portable": {
+    "artifactName": "${productName}_portable.${ext}"
   },
   "nsis": {
     "oneClick": false,
     "perMachine": false,
     "allowToChangeInstallationDirectory": true,
-    "deleteAppDataOnUninstall": false
+    "deleteAppDataOnUninstall": true
   },
   "publish": {
     "provider": "generic",

@@ -7,7 +7,7 @@ declare global {
       getMemoryLayout: () => Promise<Systeminformation.MemLayoutData[]>;
       getMemoryInformation: () => Promise<Systeminformation.MemData>;
       getProcessorInformation: () => Promise<Systeminformation.CpuData>;
-      getStorageInformation: () => Promise<Systeminformation.BlockDevicesData[]>;
+      getStorageInformation: () => Promise<Systeminformation.DiskLayoutData[]>;
       getGraphicsInformation: () => Promise<Systeminformation.GraphicsData>;
       getBiosInformation: () => Promise<Systeminformation.BiosData>;
       getMotherboardInformation: () => Promise<Systeminformation.BaseboardData>;

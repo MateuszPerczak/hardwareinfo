@@ -1,48 +1,49 @@
+import { useContext } from "react";
 import type { Systeminformation } from "systeminformation";
 
-import { Button, DataPanel, Page, Panel, Spinner } from "@/components";
+import { Button, DataPanel, InfoBar, Page, Panel, Spinner } from "@/components";
 import { Icons } from "@/components/icon/Icon.types";
+import { HardwareContext } from "@/contexts";
 
 import { memoryInformationTemplate, memoryLayoutTemplate } from "./Memory.templates";
-import { useContext } from "react";
-import { HardwareContext } from "@/contexts";
 
 export const Memory = (): JSX.Element => {
   const {
     hardware: { memory, memoryLayout },
     getSpecificHardware,
-    status,
+    getHardwareStatus,
   } = useContext(HardwareContext);
 
-  const refresh = async () => {
+  const refresh = (): void => {
     getSpecificHardware("memory");
     getSpecificHardware("memoryLayout");
   };
 
-  const isLoading = status.memory === "loading" || status.memoryLayout === "loading";
+  const { isLoading, error } = getHardwareStatus("memory", "memoryLayout");
 
   return (
     <Page
       name="Memory"
       menu={
-        <>
-          <Button
-            icon={Icons.Refresh}
-            label="Refresh"
-            onClick={refresh}
-            disabled={isLoading}
-          />
-        </>
+        <Button
+          icon={Icons.Refresh}
+          label="Refresh"
+          onClick={refresh}
+          disabled={isLoading || error}
+        />
       }
       content={
         <>
+          {error && (
+            <InfoBar
+              type="error"
+              title="Error"
+              description="An unexpected error occurred while retrieving hardware information."
+            />
+          )}
           {isLoading && <Spinner />}
           {!isLoading && memory && (
-            <Panel
-              icon={Icons.Info}
-              label="Memory information"
-              header={<Button icon={Icons.Copy} label="Copy" />}
-            >
+            <Panel icon={Icons.Info} label="Memory information">
               <DataPanel<Systeminformation.MemData>
                 style={{ padding: "10px 10px 10px 49px" }}
                 template={memoryInformationTemplate}
@@ -50,7 +51,6 @@ export const Memory = (): JSX.Element => {
               />
             </Panel>
           )}
-
           {!isLoading &&
             memoryLayout &&
             memoryLayout.map((memory) => (
@@ -59,7 +59,6 @@ export const Memory = (): JSX.Element => {
                 label={memory.manufacturer}
                 description={memory.partNum}
                 key={`${memory.serialNum}`}
-                header={<Button icon={Icons.Copy} label="Copy" />}
               >
                 <DataPanel<Systeminformation.MemLayoutData>
                   style={{ padding: "10px 10px 10px 49px" }}

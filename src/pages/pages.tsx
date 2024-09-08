@@ -1,13 +1,13 @@
 import type { Page } from "@/components/pageRenderer/PageRenderer.types";
 import {
+  Graphics,
   Home,
   Memory,
+  Motherboard,
+  Network,
   Processor,
   Settings,
   Storage,
-  Graphics,
-  Motherboard,
-  Network,
   Usb,
 } from "@/pages/index";
 

@@ -1,51 +1,51 @@
+import { useContext } from "react";
 import type { Systeminformation } from "systeminformation";
 
+import { Button, DataPanel, InfoBar, Page, Panel, Spinner } from "@/components";
 import { Icons } from "@/components/icon/Icon.types";
+import { HardwareContext } from "@/contexts";
 
 import {
   biosInformationTemplate,
   motherboardInformationTemplate,
 } from "./Motherboard.templates";
-import { Button, DataPanel, Page, Panel, Spinner } from "@/components";
-import { HardwareContext } from "@/contexts";
-import { useContext } from "react";
 
 export const Motherboard = (): JSX.Element => {
   const {
     hardware: { motherboard, bios },
     getSpecificHardware,
-    status,
+    getHardwareStatus,
   } = useContext(HardwareContext);
 
-  const refresh = () => {
+  const refresh = (): void => {
     getSpecificHardware("bios");
     getSpecificHardware("motherboard");
   };
 
-  const isLoading = status.bios === "loading" || status.motherboard === "loading";
-
+  const { isLoading, error } = getHardwareStatus("bios", "motherboard");
   return (
     <Page
       name="Motherboard"
       menu={
-        <>
-          <Button
-            icon={Icons.Refresh}
-            label="Refresh"
-            onClick={refresh}
-            disabled={isLoading}
-          />
-        </>
+        <Button
+          icon={Icons.Refresh}
+          label="Refresh"
+          onClick={refresh}
+          disabled={isLoading || error}
+        />
       }
       content={
         <>
+          {error && (
+            <InfoBar
+              type="error"
+              title="Error"
+              description="An unexpected error occurred while retrieving hardware information."
+            />
+          )}
           {isLoading && <Spinner />}
           {!isLoading && bios && (
-            <Panel
-              icon={Icons.Info}
-              label="Bios"
-              header={<Button icon={Icons.Copy} label="Copy" />}
-            >
+            <Panel icon={Icons.Info} label="Bios">
               <DataPanel<Systeminformation.BiosData>
                 style={{ padding: "10px 10px 10px 49px" }}
                 template={biosInformationTemplate}
@@ -59,7 +59,6 @@ export const Motherboard = (): JSX.Element => {
               icon={Icons.Motherboard}
               label={motherboard.model}
               description={motherboard.serial}
-              header={<Button icon={Icons.Copy} label="Copy" />}
             >
               <DataPanel<Systeminformation.BaseboardData>
                 style={{ padding: "10px 10px 10px 49px" }}

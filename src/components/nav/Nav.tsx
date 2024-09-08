@@ -45,6 +45,12 @@ export const Nav = ({ navigateTo, page }: NavProps<Pages>): JSX.Element => {
         selected={page === "network"}
       />
       <NavButton
+        icon={Icons.Storage}
+        label="Storage"
+        onClick={(): void => navigateTo("storage")}
+        selected={page === "storage"}
+      />
+      <NavButton
         icon={Icons.Usb}
         label="Usb"
         onClick={(): void => navigateTo("usb")}

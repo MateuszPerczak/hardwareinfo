@@ -30,11 +30,11 @@ export const hardwareProperties: HardwareProperties[] = [
     getHardware: async () => window.api.getNetworkInformation(),
   },
   {
-    id: "networkStats",
-    getHardware: async () => window.api.getNetworkStatsInformation(),
-  },
-  {
     id: "usb",
     getHardware: async () => window.api.getUSBformation(),
+  },
+  {
+    id: "storage",
+    getHardware: async () => window.api.getStorageInformation(),
   },
 ];

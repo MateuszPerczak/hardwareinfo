@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 export const StyledPage = styled.article`
   display: flex;
@@ -25,7 +25,7 @@ export const StyledPage = styled.article`
   }
 `;
 
-export const StyledPageContent = styled(motion.section)`
+export const StyledPageContent = styled(m.section)`
   display: flex;
   flex-direction: column;
   gap: 10px;

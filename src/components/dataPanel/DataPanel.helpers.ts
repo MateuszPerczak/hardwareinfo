@@ -18,6 +18,7 @@ export const dataTypeToFormat: Record<DataType, (value: unknown) => string> = {
   bytes: (value) => `${convertBytes(value as number)}`,
   megabytes: (value) => `${convertBytes(value as number, 2)}`,
   boolean: (value) => {
-    return Boolean(value) ? "Yes" : "No";
+    return value ? "Yes" : "No";
   },
+  megabytesPerSecond: (value) => `${value} Mbps`,
 };

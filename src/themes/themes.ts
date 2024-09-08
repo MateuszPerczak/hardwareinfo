@@ -51,5 +51,11 @@ export const themes: Themes = {
     backgroundSecondary: "#202020",
     backgroundStrong: "#1C1C1C",
     smoke: "#1C1C1C",
+    fillColorError: "#ff99a4",
+    fillColorErrorBackground: "#442726",
+    fillColorWarning: "#FCE100",
+    fillColorWarningBackground: "#433519",
+    fillColorInfo: "#4CC2FF",
+    fillColorInfoBackground: "#272727",
   },
 };

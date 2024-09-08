@@ -1,12 +1,11 @@
+export { Graphics } from "./graphics/Graphics";
 export { Home } from "./home/Home";
 export { Memory } from "./memory/Memory";
+export { Motherboard } from "./motherboard/Motherboard";
+export { Network } from "./network/Network";
 export { Processor } from "./processor/Processor";
 export { Settings } from "./settings/Settings";
 export { Storage } from "./storage/Storage";
-export { Graphics } from "./graphics/Graphics";
-export { Motherboard } from "./motherboard/Motherboard";
-export { Network } from "./network/Network";
 export { Usb } from "./usb/Usb";
-// export {} from "./";
 // export {} from "./";
 // export {} from "./";

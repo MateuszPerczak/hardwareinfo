@@ -1,4 +1,4 @@
-import { ComboBox, Page, Panel } from "@/components";
+import { ComboBox, Label, Page, Panel, StackPanel } from "@/components";
 import { Icons } from "@/components/icon/Icon.types";
 
 import { themes } from "./Settings.options";
@@ -28,7 +28,9 @@ export const Settings = (): JSX.Element => {
             icon={Icons.Info}
             label="Hardwareinfo"
             description="© 2023 Mateusz Perczak"
-          />
+          >
+            <StackPanel flex="1" gap={10} padding={10}></StackPanel>
+          </Panel>
         </>
       }
     />

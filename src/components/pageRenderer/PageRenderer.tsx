@@ -1,3 +1,4 @@
+import { AnimatePresence } from "framer-motion";
 import { useMemo } from "react";
 
 import type { Page, PageRendererProps } from "./PageRenderer.types";
@@ -13,5 +14,5 @@ export const PageRenderer = <P extends string>({
     return () => fallback;
   }, [page, pages]);
 
-  return <Component {...rest} />;
+  return <Component {...rest} key={page} />;
 };

@@ -2,7 +2,7 @@ import type { Systeminformation } from "systeminformation";
 
 import { type DataTemplate, DataType } from "@/components/dataPanel/DataPanel.types";
 
-export const controllerInformationTemplate: DataTemplate<Systeminformation.GraphicsControllerData>[] =
+export const graphicsInformationTemplate: DataTemplate<Systeminformation.GraphicsControllerData>[] =
   [
     {
       key: "model",
@@ -39,13 +39,13 @@ export const controllerInformationTemplate: DataTemplate<Systeminformation.Graph
 export const displayInformationTemplate: DataTemplate<Systeminformation.GraphicsDisplayData>[] =
   [
     {
-      key: "vendor",
-      label: "Vendor",
+      key: "model",
+      label: "Model",
       type: DataType.String,
     },
     {
-      key: "model",
-      label: "Model",
+      key: "vendor",
+      label: "Vendor",
       type: DataType.String,
     },
     {

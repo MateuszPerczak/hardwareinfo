@@ -29,7 +29,7 @@ module.exports = {
     "simple-import-sort/exports": "error",
     "@emotion/pkg-renaming": "error",
     "@emotion/import-from-emotion": "error",
-    "@typescript-eslint/explicit-function-return-type": "warning",
+    "@typescript-eslint/explicit-function-return-type": "warn",
     "@typescript-eslint/consistent-type-exports": [
       "error",
       { fixMixedExportsWithInlineTypeSpecifier: true },

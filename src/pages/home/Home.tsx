@@ -1,16 +1,22 @@
-import { Badge, Label, Page, Panel, StackPanel } from "@/components";
-import { Icons } from "@/components/icon/Icon.types";
-import { HardwareContext } from "@/contexts";
 import { useContext } from "react";
 
+import { Button, Label, Page, Panel, StackPanel } from "@/components";
+import { Icons } from "@/components/icon/Icon.types";
+import { HardwareContext } from "@/contexts";
+
 export const Home = (): JSX.Element => {
-  const { isBusy } = useContext(HardwareContext);
+  const { isLoading, getHardware } = useContext(HardwareContext);
 
   return (
     <Page
       name="Home"
       menu={
-        <>{isBusy && <Badge icon={Icons.Sync} label="reading hardware" transition />}</>
+        <Button
+          icon={Icons.Refresh}
+          label="Refresh all"
+          disabled={isLoading}
+          onClick={getHardware}
+        />
       }
       content={
         <>

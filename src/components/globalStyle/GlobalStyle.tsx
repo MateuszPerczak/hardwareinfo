@@ -13,7 +13,6 @@ export const GlobalStyle = memo((): JSX.Element => {
           margin: 0;
           padding: 0;
           font-family: "Outfit", sans-serif;
-          /* outline: 1px dotted #0bd871aa; */
         }
         *:focus-visible {
           outline: 1px solid ${textPrimary};

@@ -24,5 +24,11 @@ declare module "@emotion/react" {
     backgroundSecondary: Hex;
     backgroundStrong: Hex;
     smoke: Hex;
+    fillColorError: Hex;
+    fillColorErrorBackground: Hex;
+    fillColorWarning: Hex;
+    fillColorWarningBackground: Hex;
+    fillColorInfo: Hex;
+    fillColorInfoBackground: Hex;
   }
 }

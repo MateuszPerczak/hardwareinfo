@@ -17,12 +17,7 @@ export const Page = ({ menu, name, content }: PageProps): JSX.Element => {
           )}
         </menu>
       )}
-      <StyledPageContent
-        initial="initial"
-        animate="animate"
-        exit="exit"
-        variants={pageVariant}
-      >
+      <StyledPageContent initial="initial" animate="animate" variants={pageVariant}>
         {content}
       </StyledPageContent>
     </StyledPage>

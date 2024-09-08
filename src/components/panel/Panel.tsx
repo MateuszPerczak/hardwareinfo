@@ -1,8 +1,8 @@
 import { Icon } from "@/components/index";
 
+import { panelVariants } from "./Panel.animations";
 import { StyledPanel } from "./Panel.styles";
 import type { PanelProps } from "./Panel.types";
-import { panelVariants } from "./Panel.animations";
 
 export const Panel = ({
   label,

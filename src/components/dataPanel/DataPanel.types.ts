@@ -14,6 +14,7 @@ export enum DataType {
   Megahertz = "megahertz",
   Gigahertz = "gigahertz",
   Boolean = "boolean",
+  MegabytesPerSecond = "megabytesPerSecond",
 }
 
 export type DataTemplate<P> = {

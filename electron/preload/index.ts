@@ -9,7 +9,7 @@ contextBridge.exposeInMainWorld("api", {
     ipcRenderer.invoke("getMemoryInformation"),
   getProcessorInformation: async (): Promise<Systeminformation.CpuData> =>
     ipcRenderer.invoke("getProcessorInformation"),
-  getStorageInformation: async (): Promise<Systeminformation.BlockDevicesData[]> =>
+  getStorageInformation: async (): Promise<Systeminformation.DiskLayoutData[]> =>
     ipcRenderer.invoke("getStorageInformation"),
   getGraphicsInformation: async (): Promise<Systeminformation.GraphicsData> =>
     ipcRenderer.invoke("getGraphicsInformation"),
