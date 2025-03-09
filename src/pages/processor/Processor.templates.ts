@@ -63,6 +63,11 @@ export const processorInformationTemplate: DataTemplate<Systeminformation.CpuDat
     label: "Virtualization",
     type: DataType.Boolean,
   },
+  {
+    key: "flags",
+    label: "Flags",
+    type: DataType.Flags,
+  },
 ];
 
 export const cacheInformationTemplate: DataTemplate<Systeminformation.CpuCacheData>[] = [

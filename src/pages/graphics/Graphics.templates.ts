@@ -50,12 +50,12 @@ export const displayInformationTemplate: DataTemplate<Systeminformation.Graphics
     },
     {
       key: "resolutionX",
-      label: "Resolution X",
+      label: "Resolution horizontal",
       type: DataType.String,
     },
     {
       key: "resolutionY",
-      label: "Resolution Y",
+      label: "Resolution vertical",
       type: DataType.String,
     },
     {

@@ -11,22 +11,19 @@ import {
 } from "./Network.templates";
 
 export const Network = (): JSX.Element => {
-  const {
-    hardware: { network },
-    getSpecificHardware,
-    getHardwareStatus,
-  } = useContext(HardwareContext);
+  const { hardware, getSpecificHardware, getHardwareStatus } =
+    useContext(HardwareContext);
 
   const refresh = (): Promise<void> => getSpecificHardware("network");
 
   const { isLoading, error } = getHardwareStatus("network");
 
   const networkAdapters = useMemo(() => {
-    if (network === undefined) {
-      return;
+    if (hardware.network === undefined) {
+      return [];
     }
-    return Array.isArray(network) ? network : [network];
-  }, [network]);
+    return Array.isArray(hardware.network) ? hardware.network : [hardware.network];
+  }, [hardware.network]);
 
   return (
     <Page
@@ -50,7 +47,6 @@ export const Network = (): JSX.Element => {
           )}
           {isLoading && <Spinner />}
           {!isLoading &&
-            networkAdapters &&
             networkAdapters.map((networkAdapter, index) => (
               <Panel
                 icon={Icons.Network}
@@ -80,14 +76,3 @@ export const Network = (): JSX.Element => {
     />
   );
 };
-
-{
-  /* <Panel
-icon={Icons.Network}
-label="DsaDasfs"
-description="Network adapter"
-header={<></>}
->
-<DataPanel data={{}} template={networkInformationTemplate} />
-</Panel> */
-}

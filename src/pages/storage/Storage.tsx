@@ -1,7 +1,7 @@
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import type { Systeminformation } from "systeminformation";
 
-import { Button, DataPanel, InfoBar, Page, Panel, Spinner } from "@/components";
+import { Badge, Button, DataPanel, InfoBar, Page, Panel, Spinner } from "@/components";
 import { Icons } from "@/components/icon/Icon.types";
 import { HardwareContext } from "@/contexts";
 
@@ -12,28 +12,33 @@ import {
 } from "./Storage.templates";
 
 export const Storage = (): JSX.Element => {
-  const {
-    hardware: { storage },
-    getSpecificHardware,
-    getHardwareStatus,
-  } = useContext(HardwareContext);
+  const { hardware, getSpecificHardware, getHardwareStatus } =
+    useContext(HardwareContext);
 
   const refresh = (): Promise<void> => getSpecificHardware("storage");
 
   const { isLoading, error } = getHardwareStatus("storage");
 
-  console.log(storage);
+  const storage = useMemo(() => hardware.storage ?? [], [hardware.storage]);
 
   return (
     <Page
       name="Storage"
       menu={
-        <Button
-          icon={Icons.Refresh}
-          label="Refresh"
-          onClick={refresh}
-          disabled={isLoading || error}
-        />
+        <>
+          <Badge
+            icon={Icons.Storage}
+            label={`Found ${storage.length} storage device${
+              storage.length !== 1 ? "s" : ""
+            }`}
+          />
+          <Button
+            icon={Icons.Refresh}
+            label="Refresh"
+            onClick={refresh}
+            disabled={isLoading || error}
+          />
+        </>
       }
       content={
         <>
@@ -46,7 +51,6 @@ export const Storage = (): JSX.Element => {
           )}
           {isLoading && <Spinner />}
           {!isLoading &&
-            storage &&
             storage.map((storageDevice) => (
               <Panel
                 icon={Icons.Storage}

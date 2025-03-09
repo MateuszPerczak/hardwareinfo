@@ -21,4 +21,5 @@ export const dataTypeToFormat: Record<DataType, (value: unknown) => string> = {
     return value ? "Yes" : "No";
   },
   megabytesPerSecond: (value) => `${value} Mbps`,
+  flags: (value) => `${value}`.replaceAll(/(?<=.)(\s)(?=.)/g, ", "),
 };
