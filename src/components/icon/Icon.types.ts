@@ -27,6 +27,8 @@ export enum Icons {
   Usb = "\uECF0",
   Delete = "\uE74D",
   ErrorFilled = "\uEB90",
+  Speaker = "\uE7F5",
+  Language = "\uF2B7",
 
   // Search = "\uE721",
   // GiftBox = "\uF133",

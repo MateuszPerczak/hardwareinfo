@@ -20,6 +20,22 @@ export const Settings = (): JSX.Element => {
                   options={themes}
                   selectedOption={"system"}
                   onChange={(): void => undefined}
+                  width={150}
+                />
+              </>
+            }
+          />
+          <Panel
+            icon={Icons.Language}
+            label="Language"
+            description="Choose app language"
+            header={
+              <>
+                <ComboBox<"en">
+                  options={[{ name: "English", value: "en" }]}
+                  selectedOption={"en"}
+                  onChange={(): void => undefined}
+                  width={150}
                 />
               </>
             }
@@ -29,7 +45,9 @@ export const Settings = (): JSX.Element => {
             label="Hardwareinfo"
             description="© 2023 Mateusz Perczak"
           >
-            <StackPanel flex="1" gap={10} padding={10}></StackPanel>
+            {/* <StackPanel flex="1" gap={10} padding={10}>
+              <Label label="Made with ❤️ by Me" />
+            </StackPanel> */}
           </Panel>
         </>
       }

@@ -1,6 +1,6 @@
 import { useContext, useMemo } from "react";
 
-import { Button, DataPanel, InfoBar, Page, Panel, Spinner } from "@/components";
+import { Badge, Button, DataPanel, InfoBar, Page, Panel, Spinner } from "@/components";
 import { Icons } from "@/components/icon/Icon.types";
 import { HardwareContext } from "@/contexts";
 
@@ -22,19 +22,32 @@ export const Network = (): JSX.Element => {
     if (hardware.network === undefined) {
       return [];
     }
-    return Array.isArray(hardware.network) ? hardware.network : [hardware.network];
+
+    const networkArray = Array.isArray(hardware.network)
+      ? hardware.network
+      : [hardware.network];
+
+    return networkArray.filter(({ iface }) => iface === "Ethernet");
   }, [hardware.network]);
 
   return (
     <Page
       name="Network"
       menu={
-        <Button
-          icon={Icons.Refresh}
-          label="Refresh"
-          onClick={refresh}
-          disabled={isLoading || error}
-        />
+        <>
+          <Badge
+            icon={Icons.Network}
+            label={`Found ${networkAdapters.length} network device${
+              networkAdapters.length !== 1 ? "s" : ""
+            }`}
+          />
+          <Button
+            icon={Icons.Refresh}
+            label="Refresh"
+            onClick={refresh}
+            disabled={isLoading || error}
+          />
+        </>
       }
       content={
         <>

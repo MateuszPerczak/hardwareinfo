@@ -11,7 +11,7 @@ export const InfoBar = ({ type, title, description }: InfoBarProps): JSX.Element
         <Icon icon={typeToIconMapper[type]} />
       </div>
       <div className="info-bar-body">
-        <span className="info-bar-title">{title}</span>
+        {title && <span className="info-bar-title">{title}</span>}
         {description && <span className="info-bar-description">{description}</span>}
       </div>
     </StyledInfoBar>

@@ -1,5 +1,5 @@
 export type InfoBarProps = {
-  title: string;
+  title?: string;
   description?: string;
   type: InfoBarType;
 };

@@ -1,5 +1,3 @@
-import { AnimatePresence } from "framer-motion";
-
 import { GlobalStyle, Nav, PageRenderer } from "@/components/index";
 import { useNavigation } from "@/hooks/index";
 import { type Pages, pages } from "@/pages/pages";

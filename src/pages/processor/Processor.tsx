@@ -1,10 +1,11 @@
-import { useContext } from "react";
+import { useContext, useMemo } from "react";
 import type { Systeminformation } from "systeminformation";
 
 import { Button, DataPanel, InfoBar, Page, Panel, Spinner } from "@/components";
 import { Icons } from "@/components/icon/Icon.types";
 import { HardwareContext } from "@/contexts";
 
+import { getCpuFact } from "./Processor.facts";
 import {
   cacheInformationTemplate,
   processorInformationTemplate,
@@ -20,6 +21,8 @@ export const Processor = (): JSX.Element => {
   const refresh = (): Promise<void> => getSpecificHardware("processor");
 
   const { isLoading, error } = getHardwareStatus("processor");
+
+  const cpuFact = useMemo(() => getCpuFact(), []);
 
   return (
     <Page
@@ -60,6 +63,7 @@ export const Processor = (): JSX.Element => {
               />
             </Panel>
           )}
+          {!isLoading && <InfoBar title="Fun fact!" type="info" description={cpuFact} />}
         </>
       }
     />

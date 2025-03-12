@@ -23,6 +23,7 @@ export type Hardware = {
     | Systeminformation.NetworkInterfacesData;
   usb: Systeminformation.UsbData[];
   storage: Systeminformation.DiskLayoutData[];
+  audio: Systeminformation.AudioData[];
 };
 
 export type HardwareId = keyof Hardware;

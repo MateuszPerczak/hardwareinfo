@@ -37,4 +37,8 @@ export const hardwareProperties: HardwareProperties[] = [
     id: "storage",
     getHardware: async () => window.api.getStorageInformation(),
   },
+  {
+    id: "audio",
+    getHardware: async () => window.api.getAudioInformation(),
+  },
 ];

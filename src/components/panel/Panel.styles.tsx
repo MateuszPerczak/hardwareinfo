@@ -23,7 +23,7 @@ export const StyledPanel = styled(m.div)`
     font-size: 14px;
   }
   .panel-header-description {
-    font-size: 10px;
+    font-size: 12px;
     color: ${({ theme: { textSecondary } }): string => textSecondary};
   }
   .panel-header-children {
