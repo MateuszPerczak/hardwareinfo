@@ -6,10 +6,10 @@ export const StyledDataPanel = styled.div`
   grid-template-rows: auto;
   font-size: 14px;
   font-weight: 300;
-  color: ${({ theme: { textPrimary } }): string => textPrimary};
+  color: ${({ theme: { dataPanelKeyColor } }): string => dataPanelKeyColor};
   user-select: text;
   .data-value {
-    color: ${({ theme: { textSecondary } }): string => textSecondary};
+    color: ${({ theme: { dataPanelValueColor } }): string => dataPanelValueColor};
     user-select: text;
   }
 `;

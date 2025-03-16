@@ -1,4 +1,12 @@
-import type { useHardware } from "@/hooks";
 import { createContext } from "react";
 
-export const HardwareContext = createContext<ReturnType<typeof useHardware>>({} as any);
+import type { useHardware } from "@/hooks";
+
+export const HardwareContext = createContext<ReturnType<typeof useHardware>>({
+  getHardware: async () => undefined,
+  isLoading: false,
+  getHardwareStatus: () => ({ error: false, isLoading: false, isPreLoaded: false }),
+  getSpecificHardware: async () => undefined,
+  hardware: {},
+  preloadHardware: async () => undefined,
+});

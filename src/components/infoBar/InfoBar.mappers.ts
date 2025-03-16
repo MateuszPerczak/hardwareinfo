@@ -10,12 +10,12 @@ export const typeToIconMapper: Record<InfoBarType, Icons> = {
 };
 
 export const typeToColorMapper: Record<InfoBarType, keyof Theme> = {
-  error: "fillColorError",
-  info: "fillColorInfo",
-  waring: "fillColorWarning",
+  error: "infoBarErrorColor",
+  info: "infoBarInfoColor",
+  waring: "infoBarWarningColor",
 };
 export const typeToBackgroundMapper: Record<InfoBarType, keyof Theme> = {
-  error: "fillColorErrorBackground",
-  info: "backgroundLayer",
-  waring: "fillColorWarningBackground",
+  error: "infoBarErrorBackground",
+  info: "infoBarInfoBackground",
+  waring: "infoBarWarningBackground",
 };

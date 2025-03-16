@@ -6,8 +6,9 @@ import { StyledButton } from "../button/Button.styles";
 export const StyledPanel = styled(m.div)`
   display: flex;
   flex-direction: column;
-  background-color: ${({ theme: { backgroundLayer } }): string => backgroundLayer};
-  border: 1px solid ${({ theme: { strokeStrong } }): string => strokeStrong};
+  background-color: ${({ theme: { panelBackground } }): string => panelBackground};
+  color: ${({ theme: { panelHeaderColor } }): string => panelHeaderColor};
+  border: 1px solid ${({ theme: { panelBorder } }): string => panelBorder};
   border-radius: 4px;
   .panel-header {
     display: flex;
@@ -24,7 +25,8 @@ export const StyledPanel = styled(m.div)`
   }
   .panel-header-description {
     font-size: 12px;
-    color: ${({ theme: { textSecondary } }): string => textSecondary};
+    color: ${({ theme: { panelHeaderDescriptionColor } }): string =>
+      panelHeaderDescriptionColor};
   }
   .panel-header-children {
     display: flex;
@@ -34,10 +36,12 @@ export const StyledPanel = styled(m.div)`
   .panel-children {
     display: flex;
     flex-direction: column;
-    border-top: 1px solid ${({ theme: { strokeStrong } }): string => strokeStrong};
+    border-top: 1px solid
+      ${({ theme: { panelChildrenBorder } }): string => panelChildrenBorder};
   }
   .panel-children > *:not(:last-child) {
-    border-bottom: 1px solid ${({ theme: { strokeStrong } }): string => strokeStrong};
+    border-bottom: 1px solid
+      ${({ theme: { panelChildrenBorder } }): string => panelChildrenBorder};
   }
   ${StyledButton} {
     height: 33px;

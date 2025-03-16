@@ -9,8 +9,8 @@ export const StyledInfoBar = styled(m.div)<{ type: InfoBarType }>`
   align-items: center;
   gap: 16px;
   background-color: ${({ theme, type }): string => theme[typeToBackgroundMapper[type]]};
-  color: ${({ theme: { textPrimary } }): string => textPrimary};
-  border: 1px solid ${({ theme: { strokeStrong } }): string => strokeStrong};
+  color: ${({ theme: { infoBarColor } }): string => infoBarColor};
+  border: 1px solid ${({ theme: { infoBarBorder } }): string => infoBarBorder};
   padding: 8px 10px 8px 16px;
   border-radius: 4px;
   min-height: max-content;
@@ -29,6 +29,6 @@ export const StyledInfoBar = styled(m.div)<{ type: InfoBarType }>`
   }
   .info-bar-description {
     font-size: 12px;
-    color: ${({ theme: { textSecondary } }): string => textSecondary};
+    color: ${({ theme: { infoBarDescriptionColor } }): string => infoBarDescriptionColor};
   }
 `;

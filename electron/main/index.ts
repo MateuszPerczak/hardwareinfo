@@ -80,7 +80,7 @@ const onReadyToShow = (window: BrowserWindow): void => {
 const appContent: AppContent = {
   development: (window: BrowserWindow) => {
     window.loadURL(url);
-    window.webContents.openDevTools({ mode: "detach" });
+    // window.webContents.openDevTools({ mode: "detach" });
   },
   production: (window: BrowserWindow) => {
     window.loadFile(indexHtml);

@@ -3,11 +3,11 @@ import { domAnimation, LazyMotion } from "framer-motion";
 import { useEffect } from "react";
 
 import { AppContent } from "@/components/index";
-import { HardwareContext } from "@/contexts";
-import { useHardware, useTheme } from "@/hooks/index";
+import { HardwareContext, SettingsContext } from "@/contexts";
+import { useHardware, useSettings } from "@/hooks/index";
 
 export const App = (): JSX.Element => {
-  const theme = useTheme();
+  const settings = useSettings();
   const hardware = useHardware();
 
   useEffect(() => {
@@ -15,10 +15,12 @@ export const App = (): JSX.Element => {
   }, []);
 
   return (
-    <ThemeProvider theme={theme}>
+    <ThemeProvider theme={settings.theme}>
       <LazyMotion features={domAnimation} strict>
         <HardwareContext.Provider value={hardware}>
-          <AppContent />
+          <SettingsContext.Provider value={settings}>
+            <AppContent />
+          </SettingsContext.Provider>
         </HardwareContext.Provider>
       </LazyMotion>
     </ThemeProvider>

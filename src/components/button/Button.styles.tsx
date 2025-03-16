@@ -12,24 +12,29 @@ export const StyledButton = styled.button`
   outline: none;
   font-size: 12px;
   line-height: 0;
-  background-color: ${({ theme: { fill } }): string => fill};
-  color: ${({ theme: { textPrimary } }): string => textPrimary};
-  border: 1px solid ${({ theme: { stroke } }): string => stroke};
+  background-color: ${({ theme: { buttonBackground } }): string => buttonBackground};
+  color: ${({ theme: { buttonColor } }): string => buttonColor};
+  border: 1px solid ${({ theme: { buttonBorder } }): string => buttonBorder};
   transition: background-color 150ms, border 150ms, color 150ms;
   &:disabled {
-    color: ${({ theme: { textDisabled } }): string => textDisabled};
-    background-color: ${({ theme: { fillDisabled } }): string => fillDisabled};
-    border: 1px solid ${({ theme: { strokeDisabled } }): string => strokeDisabled};
+    background-color: ${({ theme: { buttonDisabledBackground } }): string =>
+      buttonDisabledBackground};
+    color: ${({ theme: { buttonDisabledColor } }): string => buttonDisabledColor};
+    border: 1px solid
+      ${({ theme: { buttonDisabledBorder } }): string => buttonDisabledBorder};
   }
   &:hover:not([disabled]) {
-    background-color: ${({ theme: { fillHover } }): string => fillHover};
-    border: 1px solid ${({ theme: { strokeHover } }): string => strokeHover};
+    background-color: ${({ theme: { buttonHoverBackground } }): string =>
+      buttonHoverBackground};
+    border: 1px solid ${({ theme: { buttonHoverBorder } }): string => buttonHoverBorder};
   }
   &:active:not([disabled]) {
-    background-color: ${({ theme: { fillActive } }): string => fillActive};
-    border: 1px solid ${({ theme: { strokeActive } }): string => strokeActive};
+    background-color: ${({ theme: { buttonActiveBackground } }): string =>
+      buttonActiveBackground};
+    border: 1px solid ${({ theme: { buttonActiveBorder } }): string => buttonActiveBorder};
   }
   &:focus-visible {
-    outline: 1px solid ${({ theme: { textPrimary } }): string => textPrimary};
+    outline: 1px solid
+      ${({ theme: { buttonFocusOutline } }): string => buttonFocusOutline};
   }
 `;

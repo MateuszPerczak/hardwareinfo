@@ -2,7 +2,15 @@ import { css, Global, type Theme, useTheme } from "@emotion/react";
 import { memo } from "react";
 
 export const GlobalStyle = memo((): JSX.Element => {
-  const { background, textPrimary, fillStrong }: Theme = useTheme();
+  const {
+    background,
+    focusOutline,
+    color,
+    scrollBarThumbBackground,
+    selectionBackground,
+    selectionColor,
+    scrollBarThumbHoverBackground,
+  }: Theme = useTheme();
   return (
     <Global
       styles={css`
@@ -15,7 +23,7 @@ export const GlobalStyle = memo((): JSX.Element => {
           font-family: "Outfit", sans-serif;
         }
         *:focus-visible {
-          outline: 1px solid ${textPrimary};
+          outline: 1px solid ${focusOutline};
         }
         html,
         body {
@@ -25,7 +33,7 @@ export const GlobalStyle = memo((): JSX.Element => {
         body {
           display: flex;
           background: ${background};
-          color: ${textPrimary};
+          color: ${color};
           overflow: hidden;
           user-select: none;
         }
@@ -40,20 +48,20 @@ export const GlobalStyle = memo((): JSX.Element => {
           min-height: 0;
         }
         ::selection {
-          background: ${fillStrong};
-          color: ${background};
+          background: ${selectionBackground};
+          color: ${selectionColor};
         }
         ::-webkit-scrollbar {
           width: 14px;
         }
         ::-webkit-scrollbar-thumb {
           border: 4px solid transparent;
-          background-color: ${fillStrong};
+          background-color: ${scrollBarThumbBackground};
           background-clip: padding-box;
           border-radius: 10px;
         }
         ::-webkit-scrollbar-thumb:hover {
-          background-color: ${fillStrong};
+          background-color: ${scrollBarThumbHoverBackground};
         }
       `}
     />

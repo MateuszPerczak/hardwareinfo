@@ -9,6 +9,6 @@ export const StyledLabel = styled.div`
   .description {
     font-size: 12px;
     font-weight: 300;
-    color: ${({ theme: { textSecondary } }): string => textSecondary};
+    color: ${({ theme: { labelColor } }): string => labelColor};
   }
 `;

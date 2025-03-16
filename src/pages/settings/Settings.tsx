@@ -1,10 +1,15 @@
-import { ComboBox, Label, Page, Panel, StackPanel } from "@/components";
+import { useContext } from "react";
+
+import { ComboBox, Page, Panel } from "@/components";
 import { Icons } from "@/components/icon/Icon.types";
+import { SettingsContext } from "@/contexts";
+import type { Theme } from "@/hooks/useTheme/useTheme.types";
 
 import { themes } from "./Settings.options";
-import type { Theme } from "./Settings.types";
 
 export const Settings = (): JSX.Element => {
+  const { setTheme, currentThemeSource } = useContext(SettingsContext);
+
   return (
     <Page
       name="Settings"
@@ -18,8 +23,8 @@ export const Settings = (): JSX.Element => {
               <>
                 <ComboBox<Theme>
                   options={themes}
-                  selectedOption={"system"}
-                  onChange={(): void => undefined}
+                  selectedOption={currentThemeSource}
+                  onChange={(themeSource): void => setTheme(themeSource)}
                   width={150}
                 />
               </>
@@ -36,6 +41,7 @@ export const Settings = (): JSX.Element => {
                   selectedOption={"en"}
                   onChange={(): void => undefined}
                   width={150}
+                  disabled
                 />
               </>
             }
@@ -43,12 +49,8 @@ export const Settings = (): JSX.Element => {
           <Panel
             icon={Icons.Info}
             label="Hardwareinfo"
-            description="© 2023 Mateusz Perczak"
-          >
-            {/* <StackPanel flex="1" gap={10} padding={10}>
-              <Label label="Made with ❤️ by Me" />
-            </StackPanel> */}
-          </Panel>
+            description="© 2025 Mateusz Perczak"
+          />
         </>
       }
     />

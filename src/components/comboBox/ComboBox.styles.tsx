@@ -13,25 +13,33 @@ export const StyledComboBox = styled.div<{ width?: number }>`
     padding: 8px 10px;
     border-radius: 4px;
     font-size: 12px;
-    background-color: ${({ theme: { fill } }): string => fill};
-    color: ${({ theme: { textPrimary } }): string => textPrimary};
-    border: 1px solid ${({ theme: { stroke } }): string => stroke};
+    background-color: ${({ theme: { comboBoxBackground } }): string =>
+      comboBoxBackground};
+    color: ${({ theme: { comboBoxColor } }): string => comboBoxColor};
+    border: 1px solid ${({ theme: { comboBoxBorder } }): string => comboBoxBorder};
     transition: background-color 150ms, border 150ms, color 150ms;
     &:disabled {
-      color: ${({ theme: { textDisabled } }): string => textDisabled};
-      background-color: ${({ theme: { fillDisabled } }): string => fillDisabled};
-      border: 1px solid ${({ theme: { strokeDisabled } }): string => strokeDisabled};
+      background-color: ${({ theme: { comboBoxDisabledBackground } }): string =>
+        comboBoxDisabledBackground};
+      color: ${({ theme: { comboBoxDisabledColor } }): string => comboBoxDisabledColor};
+      border: 1px solid
+        ${({ theme: { comboBoxDisabledBorder } }): string => comboBoxDisabledBorder};
     }
     &:hover:not([disabled]) {
-      background-color: ${({ theme: { fillHover } }): string => fillHover};
-      border: 1px solid ${({ theme: { strokeHover } }): string => strokeHover};
+      background-color: ${({ theme: { comboBoxHoverBackground } }): string =>
+        comboBoxHoverBackground};
+      border: 1px solid
+        ${({ theme: { comboBoxHoverBorder } }): string => comboBoxHoverBorder};
     }
     &:active:not([disabled]) {
-      background-color: ${({ theme: { fillActive } }): string => fillActive};
-      border: 1px solid ${({ theme: { strokeActive } }): string => strokeActive};
+      background-color: ${({ theme: { comboBoxActiveBackground } }): string =>
+        comboBoxActiveBackground};
+      border: 1px solid
+        ${({ theme: { comboBoxActiveBorder } }): string => comboBoxActiveBorder};
     }
     &:focus-visible {
-      outline: 1px solid ${({ theme: { textPrimary } }): string => textPrimary};
+      outline: 1px solid
+        ${({ theme: { comboBoxFocusOutline } }): string => comboBoxFocusOutline};
     }
   }
   menu {
@@ -49,8 +57,9 @@ export const StyledComboBox = styled.div<{ width?: number }>`
     flex-direction: column;
     gap: 5px;
     padding: 5px;
-    background-color: ${({ theme: { fill } }): string => fill};
-    border: 1px solid ${({ theme: { stroke } }): string => stroke};
+    background-color: ${({ theme: { comboBoxMenuBackground } }): string =>
+      comboBoxMenuBackground};
+    border: 1px solid ${({ theme: { comboBoxMenuBorder } }): string => comboBoxMenuBorder};
     border-radius: 4px;
     transform: translateY(-100%);
     animation: menu-open 300ms cubic-bezier(0.2, 0.7, 0, 0.99) forwards;
@@ -60,15 +69,18 @@ export const StyledComboBox = styled.div<{ width?: number }>`
     padding: 8px 10px;
     border-radius: 4px;
     font-size: 12px;
-    background-color: ${({ theme: { fill } }): string => fill};
-    color: ${({ theme: { textPrimary } }): string => textPrimary};
+    background-color: ${({ theme: { comboBoxMenuItemBackground } }): string =>
+      comboBoxMenuItemBackground};
+    color: ${({ theme: { comboBoxMenuItemColor } }): string => comboBoxMenuItemColor};
     border: none;
     transition: background-color 150ms, border 150ms, color 150ms;
     &:hover {
-      background-color: ${({ theme: { fillHover } }): string => fillHover};
+      background-color: ${({ theme: { comboBoxMenuItemHoverBackground } }): string =>
+        comboBoxMenuItemHoverBackground};
     }
     &:active {
-      background-color: ${({ theme: { fillActive } }): string => fillActive};
+      background-color: ${({ theme: { comboBoxMenuItemActiveBackground } }): string =>
+        comboBoxMenuItemActiveBackground};
     }
   }
   @keyframes menu-open {

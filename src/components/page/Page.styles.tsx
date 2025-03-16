@@ -10,7 +10,7 @@ export const StyledPage = styled.article`
     align-items: center;
     justify-content: space-between;
     flex: 0 0 50px;
-    border-bottom: 1px solid ${({ theme: { stroke } }): string => stroke};
+    border-bottom: 1px solid ${({ theme: { pageBorder } }): string => pageBorder};
     padding: 0 10px;
   }
   .toolbar-name {

@@ -11,9 +11,9 @@ export const StyledBadge = styled.span<Pick<BadgeProps, "transition">>`
   height: 35px;
   min-width: 35px;
   border-radius: 4px;
-  background-color: ${({ theme: { fill } }): string => fill};
-  color: ${({ theme: { textPrimary } }): string => textPrimary};
-  border: 1px solid ${({ theme: { stroke } }): string => stroke};
+  background-color: ${({ theme: { badgeBackground } }): string => badgeBackground};
+  color: ${({ theme: { badgeColor } }): string => badgeColor};
+  border: 1px solid ${({ theme: { badgeBorder } }): string => badgeBorder};
   font-size: 12px;
   animation: ${({ transition }): string =>
     transition ? "badge-show 300ms cubic-bezier(0.2, 0.7, 0, 0.99) forwards" : "none"};

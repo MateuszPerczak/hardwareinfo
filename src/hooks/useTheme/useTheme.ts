@@ -1,24 +1,28 @@
-import type { Theme } from "@emotion/react";
-import { useEffect, useState } from "react";
+// import type { Theme } from "@emotion/react";
+// import { useEffect, useState } from "react";
 
-import { ColorThemes, themes } from "../../themes/themes";
-import type { UpdateThemeProps } from "./useTheme.types";
+// import { ColorThemes, themes } from "../../themes/themes";
+// import type { UpdateThemeProps, UseThemeState } from "./useTheme.types";
 
-export const useTheme = (): Theme => {
-  const [theme, setTheme] = useState<ColorThemes>(ColorThemes.Dark);
+// export const useTheme = () => {
+//   const [state, setState] = useState<UseThemeState>({
+//     theme: "system",
+//   });
 
-  const updateTheme = ({ matches }: UpdateThemeProps): void => {
-    setTheme(matches ? ColorThemes.Dark : ColorThemes.Light);
-  };
+//   const [theme, setTheme] = useState<ColorThemes>(ColorThemes.Dark);
 
-  useEffect(() => {
-    const matchMedia: MediaQueryList = window.matchMedia("(prefers-color-scheme: dark)");
+//   const updateTheme = ({ matches }: UpdateThemeProps): void => {
+//     setTheme(matches ? ColorThemes.Dark : ColorThemes.Light);
+//   };
 
-    updateTheme(matchMedia);
+//   useEffect(() => {
+//     const matchMedia: MediaQueryList = window.matchMedia("(prefers-color-scheme: dark)");
 
-    matchMedia.addEventListener("change", updateTheme);
-    return () => matchMedia.removeEventListener("change", updateTheme);
-  }, []);
+//     updateTheme(matchMedia);
 
-  return themes[theme];
-};
+//     matchMedia.addEventListener("change", updateTheme);
+//     return () => matchMedia.removeEventListener("change", updateTheme);
+//   }, []);
+
+//   return [];
+// };
